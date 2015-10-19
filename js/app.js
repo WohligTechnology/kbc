@@ -31,10 +31,15 @@ firstapp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
         templateUrl: "views/template.html",
         controller: 'WorkCtrl'
     })
-    .state('vacation', {
-        url: "/vacation",
+    .state('question-1', {
+        url: "/question-1",
         templateUrl: "views/template.html",
-        controller: 'VacationCtrl'
+        controller: 'Question-1Ctrl'
+    })
+    .state('question-2', {
+        url: "/question-2",
+        templateUrl: "views/template.html",
+        controller: 'Question-2Ctrl'
     })
 
     $urlRouterProvider.otherwise("/intro");

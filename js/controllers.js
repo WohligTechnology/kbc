@@ -14,6 +14,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Wish");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.head = {
+      info: "You just met a genie who grants you four wishes .You choose :"  
+    };
     $scope.wish = [{
             img: 'img/community.png',
             name: 'community service'
@@ -50,6 +53,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Work");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+    $scope.head ={
+        info: "You put in your best at work . We know you do . So , your life looks something like this :"
+    }
         $scope.work = [{
             img: "img/work/work1.png"
         }, {
@@ -61,9 +67,36 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }];
 
     })
-    .controller('VacationCtrl', function ($scope, TemplateService, NavigationService) {
-        $scope.template = TemplateService.changecontent("vacation");
-        $scope.menutitle = NavigationService.makeactive("Vacation");
+    .controller('Question-2Ctrl', function ($scope, TemplateService, NavigationService) {
+        $scope.template = TemplateService.changecontent("question-2");
+        $scope.menutitle = NavigationService.makeactive("Question-2");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    $scope.head = {
+        info:'How are you feeling today ?'
+    };
+        $scope.qts2 = [
+            {
+                img: "img/qts2/1.png"
+    }, 
+            {
+                img: "img/qts2/2.png"
+    },
+            {
+                img: "img/qts2/3.png"
+    },
+            {
+                img: "img/qts2/4.png"
+    },
+            {
+                img: "img/qts2/5.png"
+    },
+    ];
+
+    })
+    .controller('Question-1Ctrl', function ($scope, TemplateService, NavigationService) {
+        $scope.template = TemplateService.changecontent("question-1");
+        $scope.menutitle = NavigationService.makeactive("Question-1");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.vacation = [{
