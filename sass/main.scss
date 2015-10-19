@@ -96,9 +96,9 @@ img {
         font-family: $font-head;
         font-size: 35px;
         line-height: 40px;
-        span {
-            font-family: $font-head-char;
-        }
+//        span {
+//            font-family: $font-head-char;
+//        }
     }
 }
 .img-holder {
@@ -118,3 +118,6 @@ img {
 .logo-holder {
     margin: 0 10px 0 0;
 }
+
+@import 'mobile'; 
+    

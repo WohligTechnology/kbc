@@ -1,0 +1,21 @@
+$tablet: 990px;
+$mobile: 768px;
+
+@media screen and (min-width: $tablet){ 
+    .wish-head {
+        p {
+            font-size: 28px; 
+        }
+    }
+}
+
+@media screen and (min-width: 768px){ 
+    .wish-head {
+        p {
+            font-size: 24px;
+            line-height: 30px;
+        }
+    }
+}
+
+
