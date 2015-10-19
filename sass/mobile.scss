@@ -1,15 +1,17 @@
 $tablet: 990px;
 $mobile: 768px;
 
-@media screen and (min-width: $tablet){ 
+@media screen and (max-width: 990px){ 
+    .intro .intro-holder figcaption { font-size: 40px; }
     .wish-head {
         p {
-            font-size: 28px; 
+            font-size: 28px;  
         }
     }
 }
 
-@media screen and (min-width: 768px){ 
+@media screen and (max-width: 768px){ 
+    .intro .intro-holder figcaption { font-size: 30px; }
     .wish-head {
         p {
             font-size: 24px;
