@@ -27,18 +27,28 @@ $text-color: $gray-base !default;
 $link-color: $gray-base !default;
 $link-hover-color: $gray-base !default;
 $link-hover-decoration: none !default;
-$font-head-char: "AG", Helvetica, Arial, sans-serif !default;
-$font-head: "Walkway Rounded", Helvetica, Arial, sans-serif !default;
-$font-vac: "Aldo SemiBold", Helvetica, Arial, sans-serif !default;
-$font-work: "Abel Regular", Helvetica, Arial, sans-serif !default;
+$font-head-char: "AG",
+Helvetica,
+Arial,
+sans-serif !default;
+$font-head: "Walkway Rounded",
+Helvetica,
+Arial,
+sans-serif !default;
+$font-vac: "Aldo SemiBold",
+Helvetica,
+Arial,
+sans-serif !default;
+$font-work: "Abel Regular",
+Helvetica,
+Arial,
+sans-serif !default;
 $head-color: #684703;
 $border-radius-base: 0px !default;
 $border-radius-large: 0px !default;
 $border-radius-small: 0px !default;
 $menu-height: 74px !default;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
-
-
 @mixin clip-path($clip) {
     -webkit-clip-path: $clip;
     -moz-clip-path: $clip;
@@ -57,11 +67,9 @@ $menu-height: 74px !default;
 .success {
     color: $brand-success;
 }
-
 img {
     margin: 0 auto;
 }
-
 .intro {
     padding: 25px 0;
     background-color: #f55069;
@@ -82,8 +90,9 @@ img {
     background-color: $background-color;
 }
 .wish-head {
+    min-height: 40px;
     p {
-        color: $head-color; 
+        color: $head-color;
         font-family: $font-head;
         font-size: 35px;
         line-height: 40px;
@@ -93,6 +102,7 @@ img {
     }
 }
 .img-holder {
+    min-height: 150px;
     margin: 20px 0;
 }
 .wish-name {
@@ -106,5 +116,5 @@ img {
     @extend.img-holder;
 }
 .logo-holder {
-    margin: 0 10px 0 0; 
+    margin: 0 10px 0 0;
 }

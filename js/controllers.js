@@ -54,7 +54,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
     $scope.head ={
-        info: "You put in your best at work . We know you do . So , your life looks something like this :"
+        info: "You put in your best at work . We know you do .So , your life looks something like this :"
     }
         $scope.work = [{
             img: "img/work/work1.png"
@@ -99,6 +99,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Question-1");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+    $scope.head = {
+        info: "You have managed to get the much awaited annual leave with family .Your vacation goes something like this :"
+    }
         $scope.vacation = [{
             img: "img/vacation/vac1.png"
         }, {
