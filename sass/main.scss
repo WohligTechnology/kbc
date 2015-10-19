@@ -1,0 +1,108 @@
+/*Start writing sass here*/
+
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+@include font-face("Walkway Rounded", "../fonts/Walkway_rounded");
+@include font-face("AG", "../fonts/AkzidenzGrotesk-Extended_2");
+//@include font-face("A_little_sunshine", "../fonts/A_little_sunshine");
+//@include font-face("Abel Regular", "../fonts/Abel-Regular);
+//@include font-face("Aldo SemiBold", "../fonts/Aldo_SemiBold);
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
+@import "../bower_components/flexslider/flexslider.css";
+@import "../bower_components/fontawesome/css/font-awesome.min.css";
+$gray-base: #000 !default;
+$gray-darker: lighten($gray-base, 13.5%) !default; // #222
+$gray-dark: lighten($gray-base, 20%) !default; // #333
+$gray: lighten($gray-base, 33.5%) !default; // #555
+$gray-light: lighten($gray-base, 46.7%) !default; // #777
+$gray-lighter: lighten($gray-base, 93.5%) !default; // #eee
+$background-color: #f7d237;
+$wish-name-bg: #fff2e1;
+$brand-primary: #0d9dff !default;
+$brand-success: #84ce3c !default;
+$brand-warning: #ffec39 !default;
+$brand-danger: #fc483f !default;
+$brand-info: #000072 !default;
+$body-bg: #fff !default;
+$text-color: $gray-base !default;
+$link-color: $gray-base !default;
+$link-hover-color: $gray-base !default;
+$link-hover-decoration: none !default;
+$font-head-char: "AG", Helvetica, Arial, sans-serif !default;
+$font-head: "Walkway Rounded", Helvetica, Arial, sans-serif !default;
+$font-vac: "Aldo SemiBold", Helvetica, Arial, sans-serif !default;
+$font-work: "Abel Regular", Helvetica, Arial, sans-serif !default;
+$head-color: #684703;
+$border-radius-base: 0px !default;
+$border-radius-large: 0px !default;
+$border-radius-small: 0px !default;
+$menu-height: 74px !default;
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+@mixin clip-path($clip) {
+    -webkit-clip-path: $clip;
+    -moz-clip-path: $clip;
+    -ms-clip-path: $clip;
+    clip-path: $clip;
+}
+.primary {
+    color: $brand-primary;
+}
+.danger {
+    color: $brand-danger;
+}
+.warning {
+    color: $brand-warning;
+}
+.success {
+    color: $brand-success;
+}
+
+
+
+.intro {
+    padding: 25px 0;
+    background-color: #f55069;
+    .intro-holder {
+        figcaption {
+            font-family: $font-head;
+            color: #fff;
+            font-size: 50px;
+            letter-spacing: 3px;
+            span {
+                display: block;
+            }
+        }
+    }
+}
+.bg {
+    padding: 35px 0;
+    background-color: $background-color;
+}
+.wish-head {
+    p {
+        color: $head-color; 
+        font-family: $font-head;
+        font-size: 35px;
+        line-height: 40px;
+        span {
+            font-family: $font-head-char;
+        }
+    }
+}
+.img-holder {
+    margin: 20px 0;
+}
+.wish-name {
+    p {
+        padding: 10px;
+        border-radius: 10px;
+        background-color: $wish-name-bg;
+    }
+}
+.wish-holder {
+    @extend.img-holder;
+}
+.logo-holder {
+    margin: 0 10px 0 0; 
+}

@@ -1,0 +1,24 @@
+<div class="wish bg">
+    <div class="container">
+        <div class="wish-head">
+            <p>You just met a genie who grants you four wishes<span>.</span>You choose<span>:</span></p>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6" ng-repeat="list in wish">
+                <div class="wish-holder">
+                    <div class="wish-img-holder">
+                        <img ng-src="{{list.img}}" alt="Wish-Genie" class="img-responsive">
+                    </div>
+                    <!--
+                    <div class="wish-name text-center">
+                        <p>{{list.name}}</p>
+                    </div>
+-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="logo-holder clearfix">
+        <img src="img/logo.png" alt="HQ" class="img-responsive pull-right">
+    </div>
+</div>
