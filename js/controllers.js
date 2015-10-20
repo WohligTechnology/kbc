@@ -67,6 +67,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }];
 
     })
+    .controller('PlayingCtrl', function ($scope, TemplateService, NavigationService) {
+        $scope.template = TemplateService.changecontent("playing");
+        $scope.menutitle = NavigationService.makeactive("Playing");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    $scope.head ={
+        info: "Your health is as important as the next deadline :"
+    }
+        $scope.playing = [{
+            img: "img/play/play1.png"
+        }, {
+            img: "img/play/play2.png"
+        }, {
+            img: "img/play/play3.png"
+        }, {
+            img: "img/play/play4.png"
+        }];
+
+    })
     .controller('Question-2Ctrl', function ($scope, TemplateService, NavigationService) {
         $scope.template = TemplateService.changecontent("question-2");
         $scope.menutitle = NavigationService.makeactive("Question-2");

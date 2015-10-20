@@ -31,6 +31,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
         templateUrl: "views/template.html",
         controller: 'WorkCtrl'
     })
+    .state('playing', {
+        url: "/playing",
+        templateUrl: "views/template.html",
+        controller: 'PlayingCtrl'
+    })
     .state('question-1', {
         url: "/question-1",
         templateUrl: "views/template.html",
