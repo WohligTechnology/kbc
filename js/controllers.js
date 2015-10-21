@@ -6,7 +6,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("intro");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-
+    $scope.bgClass = 'intro';
 })
 
 .controller('WishCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
@@ -22,7 +22,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             name: 'community service'
         }, {
             img: 'img/workplace.png',
-            name: 'Happy Workplace'
+            name: 'Happy Workplac   e'
         }, {
             img: 'img/family.png',
             name: 'Time with Family and Friends'

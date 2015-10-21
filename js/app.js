@@ -6,15 +6,15 @@ var firstapp = angular.module('firstapp', [
     'navigationservice'
 ]);
 
-firstapp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
-    
+firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+
     // for http request with session
     $httpProvider.defaults.withCredentials = true;
-    
+
 
     $stateProvider
 
-    .state('intro', {
+        .state('intro', {
         url: "/intro",
         templateUrl: "views/template.html",
         controller: 'IntroCtrl'
@@ -27,50 +27,39 @@ firstapp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
     })
 
     .state('work', {
-        url: "/work",
-        templateUrl: "views/template.html",
-        controller: 'WorkCtrl'
-    })
-    .state('playing', {
-        url: "/playing",
-        templateUrl: "views/template.html",
-        controller: 'PlayingCtrl'
-    })
-    .state('question-1', {
-        url: "/question-1",
-        templateUrl: "views/template.html",
-        controller: 'Question-1Ctrl'
-    })
-    .state('question-2', {
-        url: "/question-2",
-        templateUrl: "views/template.html",
-        controller: 'Question-2Ctrl'
-    })
+            url: "/work",
+            templateUrl: "views/template.html",
+            controller: 'WorkCtrl'
+        })
+        .state('playing', {
+            url: "/playing",
+            templateUrl: "views/template.html",
+            controller: 'PlayingCtrl'
+        })
+        .state('question-1', {
+            url: "/question-1",
+            templateUrl: "views/template.html",
+            controller: 'Question-1Ctrl'
+        })
+        .state('question-2', {
+            url: "/question-2",
+            templateUrl: "views/template.html",
+            controller: 'Question-2Ctrl'
+        })
 
     $urlRouterProvider.otherwise("/intro");
 
 });
 
 
-//firstapp.directive('img', function($compile, $parse) {
-//    return {
-//        restrict: 'E',
-//        replace: false,
-//        link: function($scope, element, attrs) {
-//            var $element = $(element);
-//            if(!attrs.noloading)
-//            {
-//                $element.after("<img src='img/loading.gif' class='loading' />");
-//                var $loading = $element.next(".loading");
-//                $element.load(function() {
-//                    $loading.remove();
-//                    $(this).addClass("doneLoading");
-//                });
-//            }
-//            else
-//            {
-//                $($element).addClass("doneLoading");
-//            }
-//        }
-//    };
-//});
+firstapp.directive("minHeight", function($window) {
+    return function(scope, element, attrs) {
+        console.log(element);
+        var minheight = '';
+        var minheight = $(window).height();
+        console.log(minheight);
+        element.css({
+            "min-height": minheight + "px"
+        });
+    };
+});

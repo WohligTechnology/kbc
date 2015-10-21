@@ -71,9 +71,13 @@ img {
     margin: 0 auto;
 }
 .intro {
-    padding: 25px 0;
+    position: relative;
     background-color: #f55069;
     .intro-holder {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
         figcaption {
             font-family: $font-head;
             color: #fff;
@@ -83,6 +87,12 @@ img {
                 display: block;
             }
         }
+    }
+    .logo-holder {
+        position: absolute;
+        bottom: 2%;
+        right: 1%;
+        @include transform(translate(2%, 1%))
     }
 }
 .bg {
@@ -96,9 +106,9 @@ img {
         font-family: $font-head;
         font-size: 35px;
         line-height: 40px;
-//        span {
-//            font-family: $font-head-char;
-//        }
+        //        span {
+        //            font-family: $font-head-char;
+        //        }
     }
 }
 .img-holder {
@@ -115,9 +125,4 @@ img {
 .wish-holder {
     @extend.img-holder;
 }
-.logo-holder {
-    margin: 0 10px 0 0;
-}
-
-@import 'mobile'; 
-    
+@import 'mobile';
