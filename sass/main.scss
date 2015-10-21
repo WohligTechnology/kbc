@@ -88,15 +88,16 @@ img {
             }
         }
     }
-    .logo-holder {
-        position: absolute;
-        bottom: 2%;
-        right: 1%;
-        @include transform(translate(2%, 1%))
-    }
+}
+.logo-holder {
+    position: absolute;
+    bottom: 2%;
+    right: 1%;
+    @include transform(translate(2%, 1%))
 }
 .bg {
     padding: 35px 0;
+    position: relative;
     background-color: $background-color;
 }
 .wish-head {
