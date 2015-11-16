@@ -15,7 +15,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.head = {
-      info: "You just met a genie who grants you four wishes .You choose :"  
+        info: "You just met a genie who grants you four wishes .You choose :"
     };
     $scope.wish = [{
             img: 'img/community.png',
@@ -53,9 +53,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Work");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-    $scope.head ={
-        info: "You put in your best at work . We know you do .So , your life looks something like this :"
-    }
+        $scope.head = {
+            info: "You put in your best at work . We know you do .So , your life looks something like this :"
+        }
         $scope.work = [{
             img: "img/work/work1.png"
         }, {
@@ -72,9 +72,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Playing");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-    $scope.head ={
-        info: "Your health is as important as the next deadline :"
-    }
+        $scope.head = {
+            info: "Your health is as important as the next deadline :"
+        }
         $scope.playing = [{
             img: "img/play/play1.png"
         }, {
@@ -91,13 +91,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Question-2");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-    $scope.head = {
-        info:'How are you feeling today ?'
-    };
+        $scope.head = {
+            info: 'How are you feeling today ?'
+        };
         $scope.qts2 = [
             {
                 img: "img/qts2/1.png"
-    }, 
+    },
             {
                 img: "img/qts2/2.png"
     },
@@ -118,9 +118,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Question-1");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-    $scope.head = {
-        info: "You have managed to get the much awaited annual leave with family .Your vacation goes something like this :"
-    }
+        $scope.head = {
+            info: "You have managed to get the much awaited annual leave with family .Your vacation goes something like this :"
+        }
         $scope.vacation = [{
             img: "img/vacation/vac1.png"
         }, {
@@ -131,9 +131,64 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             img: "img/vacation/vac4.png"
         }];
     })
-
-.controller('headerctrl', function ($scope, TemplateService) {
-    $scope.template = TemplateService;
-})
+    .controller('Question-5Ctrl', function ($scope, TemplateService, NavigationService) {
+        $scope.template = TemplateService.changecontent("question-5");
+        $scope.menutitle = NavigationService.makeactive("Question-5");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.head = {
+//            info: "You meet a school friend after a long time and he asks you , + "
+//            "How's work? "
+//            " +You say :"
+        }
+    })
+    .controller('Question-6Ctrl', function ($scope, TemplateService, NavigationService) {
+        $scope.template = TemplateService.changecontent("question-6");
+        $scope.menutitle = NavigationService.makeactive("Question-6"); 
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.head = {
+            info: "You are in the middle of a project and things aren't going your way . What next ?"
+        }
+    })
+    .controller('Question-7Ctrl', function ($scope, TemplateService, NavigationService) {
+        $scope.template = TemplateService.changecontent("question-7");
+        $scope.menutitle = NavigationService.makeactive("Question-7"); 
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.head = {
+            info: "Your friend approaches you for a job in your company . You are most likely to say this :"
+        }
+    })
+    .controller('Question-8Ctrl', function ($scope, TemplateService, NavigationService) {
+        $scope.template = TemplateService.changecontent("question-8");
+        $scope.menutitle = NavigationService.makeactive("Question-8"); 
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.head = {
+            info: "Congratulations ! Your organization just won an award :"
+        }
+    })
+    .controller('Question-9Ctrl', function ($scope, TemplateService, NavigationService) {
+        $scope.template = TemplateService.changecontent("question-9");
+        $scope.menutitle = NavigationService.makeactive("Question-9"); 
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.head = {
+            info: "Some of the things that you value in life are :"
+        }
+    })
+    .controller('Question-10Ctrl', function ($scope, TemplateService, NavigationService) {
+        $scope.template = TemplateService.changecontent("question-10");
+        $scope.menutitle = NavigationService.makeactive("Question-10"); 
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.head = {
+            info: "You find yourself smiling because you are blessed with :"
+        }
+    })
+    .controller('headerctrl', function ($scope, TemplateService) {
+        $scope.template = TemplateService;
+    })
 
 ;

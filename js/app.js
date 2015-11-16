@@ -46,6 +46,36 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
             templateUrl: "views/template.html",
             controller: 'Question-2Ctrl'
         })
+        .state('question-5', {
+            url: "/question-5",
+            templateUrl: "views/template.html",
+            controller: 'Question-5Ctrl'
+        })
+        .state('question-6', {
+            url: "/question-6",
+            templateUrl: "views/template.html",
+            controller: 'Question-6Ctrl'
+        })
+        .state('question-7', {
+            url: "/question-7",
+            templateUrl: "views/template.html",
+            controller: 'Question-7Ctrl'
+        })
+        .state('question-8', {
+            url: "/question-8",
+            templateUrl: "views/template.html",
+            controller: 'Question-8Ctrl'
+        })
+        .state('question-9', {
+            url: "/question-9",
+            templateUrl: "views/template.html",
+            controller: 'Question-9Ctrl'
+        })
+        .state('question-10', {
+            url: "/question-10",
+            templateUrl: "views/template.html",
+            controller: 'Question-10Ctrl'
+        })
 
     $urlRouterProvider.otherwise("/intro");
 
