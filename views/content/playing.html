@@ -2,15 +2,40 @@
     <div class="container">
         <div class="wish-holder">
             <div class="wish-head">
-                <p>{{head.info}}</p>
+                <p>{{playing.text}}</p>
             </div>
             <div class="row">
-                <div class="col-md-6" ng-repeat="play in playing">
-                    <div class="img-holder">
-                        <img ng-src="{{play.img}}" alt="" class="img-responsive">
+                <div class="col-md-6" ng-repeat="play in playing.option">
+                    <div class="img-holder" ng-click="selectOption(play)">
+                        <img ng-src="{{play.image|serverimage}}" alt="" class="img-responsive">
+                        <span class="check" ng-if="play.active"><i class="fa fa-check-circle"></i></span>
                     </div>
                 </div>
             </div>
+            
+            
+<!--
+            <div class="row">
+                <div class="col-md-4 shift" ng-repeat="play in playing">
+                    <div class="img-holder" ng-click="selectOption(play)">
+                        <a href=""><img ng-src="{{play.img}}" alt="" class="img-responsive"></a>
+                        <span class="check" ng-if="play.active"><i class="fa fa-check-circle"></i></span>
+                    </div>
+                </div>
+            </div>
+-->
+               
+<!--
+            <div class="row">
+                <div class="col-md-3 col-sm-6" ng-repeat="play in playing">
+                    <div class="img-holder" ng-click="selectOption(play)">
+                        <a href=""><img ng-src="{{play.img}}" alt="" class="img-responsive"></a>
+                        <span class="check" ng-if="play.active"><i class="fa fa-check-circle"></i></span>
+                    </div>
+                </div>
+            </div>
+-->
+            
         </div>
     </div>
     <div class="logo-holder clearfix">

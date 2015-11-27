@@ -1,6 +1,9 @@
+var adminurl = "http://localhost/newhq/index.php/json/";
+var imageurl = "http://localhost/newhq/uploads/";
+
 var navigationservice = angular.module('navigationservice', [])
 
-.factory('NavigationService', function() {
+.factory('NavigationService', function($http) {
     var navigation = [{
         name: "Home",
         classis: "active",
@@ -46,6 +49,30 @@ var navigationservice = angular.module('navigationservice', [])
             }
             return menuname;
         },
+	   todaysQuestion: function(id, callback){
+		   $http.get(adminurl + "getSingleQuestionAndOption?=id" + id);
+	   },
+	   pingHq: function(id, callback){
+		   $http({
+			 url: adminurl + "pingHq",
+			 method: "POST",
+			 data: {
+				 "user":id
+			 }
+		   }).success(callback);
+	   },
+	   saveAnswer: function(user, question, answer, test, callback) {
+		   $http({
+			 url: adminurl + "storeUserAnswer",
+			 method: "POST",
+			 data: {
+				 "user": user,
+				 "question": question,
+				 "option": answer,
+				 "test": test
+			 }
+		   }).success(callback);
+	   }
 
     }
 });

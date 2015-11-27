@@ -41,6 +41,10 @@
     "lesshat": "~3.0.2",
     "animate.css": "~3.3.0",
     "angular-flexslider": "~1.3.2",
-    "angular-recaptcha": "~2.2.4"
+    "angular-recaptcha": "~2.2.4",
+    "bootstrap-sass": "~3.3.5"
+  },
+  "resolutions": {
+    "angular": "~1.4.3"
   }
 }

@@ -8,6 +8,11 @@ $mobile: 768px;
             font-size: 28px;  
         }
     }
+	.img-holder .check, .wish-holder .check {
+	top: 15%;
+		left: 85%;
+		@include transform(translate(-15%,-85%));
+	}
 }
 
 @media screen and (max-width: 768px){ 
@@ -18,6 +23,11 @@ $mobile: 768px;
             line-height: 30px;
         }
     }
+	.img-holder .check, .wish-holder .check, .wish-holder .check {
+	top: 15%;
+		left: 88%;
+		@include transform(translate(-15%,-88%));
+	}
 }
 
 
