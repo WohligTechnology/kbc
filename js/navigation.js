@@ -1,5 +1,7 @@
-var adminurl = "http://localhost/newhq/index.php/json/";
-var imageurl = "http://localhost/newhq/uploads/";
+//var path = "http://localhost/newhq/";
+var path = "http://wohlig.co.in/newhq/";
+var adminurl = path + "index.php/json/";
+var imageurl = path + "uploads/";
 
 var navigationservice = angular.module('navigationservice', [])
 
