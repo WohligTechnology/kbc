@@ -228,5 +228,4 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('headerctrl', function ($scope, TemplateService) {
 	$scope.template = TemplateService;
 })
-
 ;

@@ -4,7 +4,7 @@
             <div class="wish-head">
                 <p>{{playing.text}}</p>
             </div>
-            <div class="row">
+            <div class="row" ng-if="playing.type=1">
                 <div class="col-md-6" ng-repeat="play in playing.option">
                     <div class="img-holder" ng-click="selectOption(play)">
                         <img ng-src="{{play.image|serverimage}}" alt="" class="img-responsive">
@@ -14,8 +14,7 @@
             </div>
             
             
-<!--
-            <div class="row">
+            <div class="row" ng-if="playing.type=2">
                 <div class="col-md-4 shift" ng-repeat="play in playing">
                     <div class="img-holder" ng-click="selectOption(play)">
                         <a href=""><img ng-src="{{play.img}}" alt="" class="img-responsive"></a>
@@ -23,10 +22,8 @@
                     </div>
                 </div>
             </div>
--->
                
-<!--
-            <div class="row">
+            <div class="row" ng-if="playing.type=3">
                 <div class="col-md-3 col-sm-6" ng-repeat="play in playing">
                     <div class="img-holder" ng-click="selectOption(play)">
                         <a href=""><img ng-src="{{play.img}}" alt="" class="img-responsive"></a>
@@ -34,7 +31,6 @@
                     </div>
                 </div>
             </div>
--->
             
         </div>
     </div>
