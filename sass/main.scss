@@ -1,8 +1,14 @@
 /*Start writing sass here*/
 
 @import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
-@include font-face("Walkway Rounded", "../fonts/Walkway_rounded");
-@include font-face("AG", "../fonts/AkzidenzGrotesk-Extended_2");
+@font-face {
+  font-family: "Walkway Rounded";
+  src: url(../fonts/Walkway_rounded.ttf);
+}
+@font-face {
+  font-family: "AG";
+  src: url(../fonts/AkzidenzGrotesk-Extended_2.ttf);
+}
 //@include font-face("A_little_sunshine", "../fonts/A_little_sunshine");
 //@include font-face("Abel Regular", "../fonts/Abel-Regular);
 //@include font-face("Aldo SemiBold", "../fonts/Aldo_SemiBold);
