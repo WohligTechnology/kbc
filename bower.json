@@ -19,6 +19,7 @@
     "fontawesome": "~4.3.0",
     "jquery": "~2.1.4",
     "bootstrap": "~3.3.5",
+    "bourbon": "~4.2.5",
     "angular-bootstrap": "~0.13.0",
     "lodash": "~3.10.0",
     "moment": "~2.10.3",
