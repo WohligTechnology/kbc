@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.nevergrowup.hq" version="1.0.0" versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>HQ</name>
+    <description>Happyness Quotient</description>
+    <author email="info@willnevergrowup.com" href="http://www.willnevergrowup.com">NGU</author>
+    <content src="index.html" />
+    <preference name="fullscreen" value="false" />
+    <preference name="Orientation" value="default" />
+    <preference name="target-device" value="universal" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="BackupWebStorage" value="none" />
+    <preference name="android-installLocation" value="auto" />
+    <preference name="AllowInlineMediaPlayback" value="true" />
+    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-targetSdkVersion" value="21" />
+    <preference name="ErrorUrl" value="" />
+    <preference name="KeepRunning" value="true" />
+    <preference name="LoadUrlTimeoutValue" value="20000" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarBackgroundColor" value="" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
+    <preference name="SplashScreenDelay" value="3000" />
+
+    <icon src="icon.png" />
+    <splash src="splash.png" />
+</widget>
