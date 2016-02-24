@@ -79,6 +79,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
             templateUrl: "views/template.html",
             controller: 'Question-10Ctrl'
         })
+        .state('survey', {
+            url: "/survey",
+            templateUrl: "views/template.html",
+            controller: 'SurveyCtrl'
+        });
 
     $urlRouterProvider.otherwise("/intro");
 

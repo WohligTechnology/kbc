@@ -1,11 +1,11 @@
 $tablet: 990px;
 $mobile: 768px;
 
-@media screen and (max-width: 990px){ 
+@media screen and (max-width: 990px){
     .intro .intro-holder figcaption { font-size: 40px; }
     .wish-head {
         p {
-            font-size: 28px;  
+            font-size: 28px;
         }
     }
 	.img-holder .check, .wish-holder .check {
@@ -15,7 +15,7 @@ $mobile: 768px;
 	}
 }
 
-@media screen and (max-width: 768px){ 
+@media screen and (max-width: 768px){
     .intro .intro-holder figcaption { font-size: 30px; }
     .wish-head {
         p {
@@ -29,5 +29,3 @@ $mobile: 768px;
 		@include transform(translate(-15%,-88%));
 	}
 }
-
-

@@ -9,6 +9,7 @@
   font-family: "AG";
   src: url(../fonts/AkzidenzGrotesk-Extended_2.ttf);
 }
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,300,700);
 //@include font-face("A_little_sunshine", "../fonts/A_little_sunshine");
 //@include font-face("Abel Regular", "../fonts/Abel-Regular);
 //@include font-face("Aldo SemiBold", "../fonts/Aldo_SemiBold);
@@ -23,10 +24,10 @@ $gray-light: lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter: lighten($gray-base, 93.5%) !default; // #eee
 $background-color: #f7d237;
 $wish-name-bg: #fff2e1;
-$brand-primary: #0d9dff !default;
+$brand-primary: #0784c8 !default;
 $brand-success: #84ce3c !default;
-$brand-warning: #ffec39 !default;
-$brand-danger: #fc483f !default;
+$brand-warning: #ffd61e !default;
+$brand-danger: #684703 !default;
 $brand-info: #000072 !default;
 $body-bg: #fff !default;
 $text-color: $gray-base !default;
@@ -61,6 +62,14 @@ $menu-height: 74px !default;
     -ms-clip-path: $clip;
     clip-path: $clip;
 }
+@mixin placeholder {
+  $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+  @each $placeholder in $placeholders {
+    &:#{$placeholder}-placeholder {
+      @content;
+    }
+  }
+}
 .primary {
     color: $brand-primary;
 }
@@ -72,6 +81,12 @@ $menu-height: 74px !default;
 }
 .success {
     color: $brand-success;
+}
+.bg-warning {
+  background-color: $brand-warning;
+}
+.bg-light-warning {
+  background-color: $wish-name-bg;
 }
 img {
     margin: 0 auto;
@@ -121,7 +136,7 @@ img {
 .img-holder {
     min-height: 150px;
     margin: 20px 0;
-	position: relative;
+	  position: relative;
 	.check {
 		color: $head-color;
 		font-size: 20px;
@@ -176,4 +191,85 @@ img {
   transform: translate(-50%, -50%);
 }
 
+.relative {
+  position: relative;
+  .absolute {
+    position: absolute;
+    top: 70px;
+    width: 130px;
+    height: auto;
+  }
+  .left {
+    left: 15px;
+  }
+  .right {
+    right: 15px;
+  }
+}
+
+.hq-form {
+  border-radius: 5px;
+  padding: 30px;
+  font-family: "Nunito";
+  margin: 60px 130px 0;
+  color: #383939;
+
+  .radio input[type="radio"],
+  .radio-inline input[type="radio"],
+  .checkbox input[type="checkbox"],
+  .checkbox-inline input[type="checkbox"] {
+    @include appearance(none);
+    background-color: $brand-warning;
+    height: 12px;
+    width: 12px;
+    outline: none !important;
+
+    &:checked {
+      background-color: $head-color;
+      outline: none !important;
+      border-radius: 2px;
+    }
+  }
+
+  .btn {
+    border: none;
+    border-radius: 4px;
+    color: $wish-name-bg;
+    @include transition(all ease 300ms);
+  }
+
+  .form-control {
+    border: none;
+    box-shadow: none;
+    background-color: $brand-warning;
+    border-radius: 2px;
+    color: $head-color;
+    outline: none !important;
+    border-radius: 2px;
+
+    @include placeholder {
+      color: $head-color;
+    }
+  }
+}
+@media (max-width: $screen-sm-max) {
+  .relative {
+    .absolute {
+      width: 90px;
+    }
+    .hq-form {
+      margin: 60px 90px 0;
+    }
+  }
+}
+@media (max-width: $screen-xs-max) {
+  .relative {
+    .absolute {
+      width: 0px;
+    }
+    .hq-form {
+      margin: 60px 0px 0;
+    }
+  }
+}
 @import 'mobile';
