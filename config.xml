@@ -4,6 +4,14 @@
     <description>Happyness Quotient</description>
     <author email="info@willnevergrowup.com" href="http://www.willnevergrowup.com">NGU</author>
     <content src="index.html" />
+    <access origin="*" />
+		<allow-navigation href="*" />
+		<allow-intent href="http://*/*" />
+		<allow-intent href="https://*/*" />
+		<allow-intent href="tel:*" />
+		<allow-intent href="sms:*" />
+		<allow-intent href="mailto:*" />
+		<allow-intent href="geo:*" />
     <preference name="fullscreen" value="false" />
     <preference name="Orientation" value="default" />
     <preference name="target-device" value="universal" />
@@ -29,4 +37,7 @@
 
     <icon src="icon.png" />
     <splash src="splash.png" />
+
+    <plugin name="cordova-plugin-whitelist" source="npm" />
+    <plugin name="cordova-plugin-splashscreen" source="npm" />
 </widget>
