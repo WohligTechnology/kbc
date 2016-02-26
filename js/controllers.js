@@ -1,4 +1,4 @@
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'cfp.loadingBar'])
+  angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'cfp.loadingBar'])
 
 .controller('IntroCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
@@ -77,18 +77,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.questionIndex = 0;
     $scope.playing = data[0];
   });
-  $scope.head = {
-    info: "Your health is as important as the next deadline :"
-  };
-  $scope.playing = [{
-    img: "img/play/play1.png"
-  }, {
-    img: "img/play/play2.png"
-  }, {
-    img: "img/play/play3.png"
-  }, {
-    img: "img/play/play4.png"
-  }];
+  // $scope.head = {
+  //   info: "Your health is as important as the next deadline :"
+  // };
+  // $scope.playing = [{
+  //   img: "img/play/play1.png"
+  // }, {
+  //   img: "img/play/play2.png"
+  // }, {
+  //   img: "img/play/play3.png"
+  // }, {
+  //   img: "img/play/play4.png"
+  // }];
 
   $scope.selectOption = function(play) {
     if (play.active === false || !play.active) {
