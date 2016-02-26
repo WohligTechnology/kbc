@@ -76,5 +76,5 @@ var navigationservice = angular.module('navigationservice', [])
 		   }).success(callback);
 	   }
 
-    }
+   };
 });

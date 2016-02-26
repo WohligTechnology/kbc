@@ -100,7 +100,7 @@ firstapp.directive("minHeight", function($window) {
     return function(scope, element, attrs) {
         console.log(element);
         var minheight = '';
-        var minheight = $(window).height();
+        minheight = $(window).height();
         console.log(minheight);
         element.css({
             "min-height": minheight + "px"
