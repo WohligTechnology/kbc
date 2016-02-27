@@ -88,6 +88,12 @@
 
     NavigationService.pingHq(stateParam,populateQuestion );
 
+    $scope.submitSurvey = function(surveyId,form) {
+      console.log(surveyId);
+      console.log(form);
+      
+      // NavigationService.saveSurvey(stateParam,surveyId,form);
+    };
     $scope.selectOption = function(play) {
       if (play.active === false || !play.active) {
         play.active = true;
@@ -96,11 +102,7 @@
       }
       cfpLoadingBar.start();
 
-      $scope.submitSurvey = function(surveyId,form) {
-        console.log(surveyId);
-        console.log(form);
-        // NavigationService.saveSurvey(stateParam,surveyId,form);
-      };
+
 
       NavigationService.saveAnswer(stateParam, $scope.playing.question, play.id, $scope.playing.test, function(data) {
         // if (data != "true") {

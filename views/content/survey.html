@@ -10,23 +10,22 @@
           <div class="form-group" ng-if="question.type=='1'">
             <label class="col-sm-3 control-label" ng-bind="question.content">Input</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" required>
+              <input type="text" class="form-control" required ng-model="question.value">
             </div>
           </div>
           <div class="form-group" ng-if="question.type=='4'">
             <label class="col-sm-3 control-label" ng-bind="question.content">Select</label>
             <div class="col-sm-5">
-
-              <select class="form-control" required>
+              <select class="form-control" required ng-model="question.value">
                 <option value="" selected>Please select</option>
-                <option ng-repeat="option1 in question.option" ng-bind="option1.title"></option>
+                <option ng-repeat="option1 in question.option" value="option1.title" ng-bind="option1.title"></option>
               </select>
             </div>
           </div>
           <div class="form-group" ng-if="question.type=='2'">
             <label class="col-sm-3 control-label" ng-bind="question.content">Textarea</label>
             <div class="col-sm-9">
-              <textarea class="form-control" rows="3" required></textarea>
+              <textarea class="form-control" rows="3" required ng-model="question.value"></textarea>
             </div>
           </div>
           <div class="bot-marg" ng-if="question.type=='3'">
@@ -37,7 +36,7 @@
               <div class="col-sm-9">
                 <div class="checkbox" ng-repeat="option1 in question.option">
                   <label>
-                    <input type="checkbox" value="" ng-bind="option1.title" required>
+                    <input type="checkbox" value="option1.title" ng-bind="option1.title" ng-model="question.value">
                     Checkbox one
                   </label>
                 </div>
@@ -53,7 +52,7 @@
               <div class="col-sm-9">
                 <div class="radio" ng-repeat="option1 in question.option">
                   <label>
-                    <input type="radio" value="option1" checked name="option" required>
+                    <input type="radio" value="{{option1.title}}" checked name="option" required ng-model="question.value">
                     {{option1.title}}
                   </label>
                 </div>
@@ -65,7 +64,7 @@
         </div>
         <div class="form-group">
           <div class="col-sm-offset-3 col-sm-9">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button ng-click="submitSurvey(allQuestions.surveyid,allQuestions.questions)" class="btn btn-primary">Submit</button>
           </div>
         </div>
       </form>
