@@ -232,14 +232,18 @@ img {
     background-color: $brand-warning;
     height: 12px;
     width: 12px;
+    border-radius: 2px;
     outline: none !important;
 
     &:checked {
       background-color: $head-color;
       outline: none !important;
-      border-radius: 2px;
     }
   }
+
+  .radio input[type="radio"] {
+      border-radius: 100%;
+    }
 
   .btn {
     border: none;
