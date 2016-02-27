@@ -74,7 +74,15 @@ var navigationservice = angular.module('navigationservice', [])
 				 "test": test
 			 }
 		   }).success(callback);
-	   }
+	   },
+     saveSurvey: function(user,survey,questions,callback) {
+       var obj = {user:user,survey:survey,questions:questions};
+       $http({
+			 url: adminurl + "storeSurveyAnswer",
+			 method: "POST",
+			 data: obj
+		   }).success(callback);
+     }
 
    };
 });

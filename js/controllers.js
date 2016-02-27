@@ -72,8 +72,8 @@
     $scope.navigation = NavigationService.getnav();
     console.log($stateParams.id);
     var stateParam = "MTUmaHE=";
-    if($stateParams.id) {
-      var stateParam = $stateParams.id;
+    if ($stateParams.id) {
+      stateParam = $stateParams.id;
     }
 
     function populateQuestion(data) {
@@ -81,18 +81,59 @@
       if (data.type == "survey") {
         $scope.template = TemplateService.changecontent("survey");
       }
+      else if(!data.value){
+        $state.go("intro");
+      }
+      else if(data.length > 0) {
+        $scope.template = TemplateService.changecontent("playing");
+      }
       $scope.allQuestions = data;
+      _.map($scope.allQuestions.questions, function(n) {
+        if (n.type == "3") {
+          n.value = [];
+          _.each(n.option,function(m) {
+            n.value.push(false);
+          });
+        }
+        return n;
+      });
       $scope.questionIndex = 0;
       $scope.playing = data[0];
     }
 
-    NavigationService.pingHq(stateParam,populateQuestion );
+    NavigationService.pingHq(stateParam, populateQuestion);
 
-    $scope.submitSurvey = function(surveyId,form) {
+    $scope.submitSurvey = function(surveyId, form) {
       console.log(surveyId);
       console.log(form);
-      
-      // NavigationService.saveSurvey(stateParam,surveyId,form);
+      var form2 = _.cloneDeep(form);
+      var values = _.map(form2, function(n) {
+        var obj = {};
+        if (n.type == "3") {
+          var texts = [];
+          _.each(n.option,function(m,key) {
+            if(n.value[key])
+            {
+              texts.push(m.title);
+            }
+          });
+          obj.answer = texts.join(',');
+          obj.questionid = n.id;
+        }
+        else {
+          obj.answer = n.value;
+          obj.questionid = n.id;
+        }
+
+        return obj;
+      });
+
+
+      console.log(values);
+      NavigationService.saveSurvey(stateParam,surveyId,values,function(data) {
+        console.log(data);
+        NavigationService.pingHq(stateParam, populateQuestion);
+      });
     };
     $scope.selectOption = function(play) {
       if (play.active === false || !play.active) {

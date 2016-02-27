@@ -18,7 +18,7 @@
             <div class="col-sm-5">
               <select class="form-control" required ng-model="question.value">
                 <option value="" selected>Please select</option>
-                <option ng-repeat="option1 in question.option" value="option1.title" ng-bind="option1.title"></option>
+                <option ng-repeat="option1 in question.option" value="{{option1.title}}" ng-bind="option1.title"></option>
               </select>
             </div>
           </div>
@@ -36,8 +36,8 @@
               <div class="col-sm-9">
                 <div class="checkbox" ng-repeat="option1 in question.option">
                   <label>
-                    <input type="checkbox" value="option1.title" ng-bind="option1.title" ng-model="question.value">
-                    Checkbox one
+                    <input type="checkbox" value="option1.title" ng-bind="option1.title" ng-model="question.value[$index]">
+                    {{option1.title}}
                   </label>
                 </div>
               </div>
