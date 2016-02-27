@@ -34,6 +34,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
       templateUrl: "views/template.html",
       controller: 'WorkCtrl'
     })
+    .state('playingWithoutId', {
+      url: "/playing",
+      templateUrl: "views/template.html",
+      controller: 'PlayingCtrl'
+    })
     .state('playing', {
       url: "/playing/:id",
       templateUrl: "views/template.html",

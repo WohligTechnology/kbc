@@ -10,7 +10,8 @@ var jsArray = [
   './bower_components/angular-loading-bar/build/loading-bar.min.js',
   './bower_components/ui-router/release/angular-ui-router.min.js',
   './bower_components/angular-flexslider/angular-flexslider.js',
-
+  './bower_components/jStorage/jstorage.js',
+  
   './js/app.js',
   './js/controllers.js',
   './js/templateservice.js',

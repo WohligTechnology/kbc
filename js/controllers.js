@@ -71,6 +71,10 @@
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     console.log($stateParams.id);
+    var stateParam = "MTUmaHE=";
+    if($stateParams.id) {
+      var stateParam = $stateParams.id;
+    }
 
     function populateQuestion(data) {
       console.log(data);
@@ -82,7 +86,7 @@
       $scope.playing = data[0];
     }
 
-    NavigationService.pingHq($stateParams.id,populateQuestion );
+    NavigationService.pingHq(stateParam,populateQuestion );
 
     $scope.selectOption = function(play) {
       if (play.active === false || !play.active) {
@@ -91,7 +95,7 @@
         play.active = false;
       }
       cfpLoadingBar.start();
-      NavigationService.saveAnswer($stateParams.id, $scope.playing.question, play.id, $scope.playing.test, function(data) {
+      NavigationService.saveAnswer(stateParam, $scope.playing.question, play.id, $scope.playing.test, function(data) {
         // if (data != "true") {
         //   $scope.questionIndex = 0;
         // }
@@ -102,7 +106,7 @@
         //   $state.go('intro');
         // }
 
-        NavigationService.pingHq($stateParams.id, populateQuestion);
+        NavigationService.pingHq(stateParam, populateQuestion);
 
 
         cfpLoadingBar.complete();
