@@ -1,5 +1,5 @@
 //var path = "http://localhost/newhq/";
-var path = "http://wohlig.co.in/newhq/";
+var path = "http://192.168.0.120/newhq/";
 var adminurl = path + "index.php/json/";
 var imageurl = path + "uploads/";
 

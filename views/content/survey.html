@@ -1,72 +1,79 @@
 <div class="bg-warning" min-height>
   <div class="container relative">
-    <img src="img/form-left.png" alt="left" class="left absolute" />
+    <img src="img/form-left.png" alt="left" class="left absolute"/>
     <img src="img/form-right.png" alt="" class="right absolute"/>
     <div class="bg-light-warning hq-form">
 
       <form class="form-horizontal">
-        <h2>Form</h2>
-        <div class="form-group">
-          <label class="col-sm-2 control-label">Input</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" placeholder="Input">
+        <h2 ng-bind="allQuestions.surveyname">Form</h2>
+        <div class="" ng-repeat="question in allQuestions.questions">
+          <div class="form-group" ng-if="question.type=='1'">
+            <label class="col-sm-2 control-label" ng-bind="question.content">Input</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control">
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-2 control-label">Select</label>
-          <div class="col-sm-5">
-            <select class="form-control">
-              <option value="" selected>Please select</option>
-            </select>
+          <div class="form-group" ng-if="question.type=='4'">
+            <label class="col-sm-2 control-label" ng-bind="question.content">Select</label>
+            <div class="col-sm-5">
+              <select class="form-control">
+                <option value="" selected>Please select</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-2 control-label">Textarea</label>
-          <div class="col-sm-10">
-            <textarea class="form-control" rows="3" placeholder="Textarea"></textarea>
+          <div class="form-group" ng-if="question.type=='2'">
+            <label class="col-sm-2 control-label" ng-bind="question.content">Textarea</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" rows="3" ></textarea>
+            </div>
           </div>
+          <div class="" ng-if="question.type=='3'">
+            <h4 ng-bind="question.content">
+
+            </h4>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="">
+                Checkbox one
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="">
+                Checkbox two
+              </label>
+            </div>
+          </div>
+          <div class="" ng-if="question.type=='5'">
+            <h4 ng-bind="question.content">
+
+            </h4>
+            <div class="radio">
+              <label>
+                <input type="radio" value="option1" checked name="option">
+                Option one
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" value="option2" name="option">
+                Option two
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" value="option3" name="option">
+                Option three
+              </label>
+            </div>
+          </div>
+
         </div>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </div>
-
-        <h4>
-          Form Name
-        </h4>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="">
-            Checkbox one
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="">
-            Checkbox two
-          </label>
-        </div>
-
-        <div class="radio">
-          <label>
-            <input type="radio" value="option1" checked name="option">
-            Option one
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" value="option2" name="option">
-            Option two
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" value="option3" name="option">
-            Option three
-          </label>
-        </div>
-
       </form>
 
     </div>
