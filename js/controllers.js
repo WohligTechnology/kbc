@@ -71,7 +71,7 @@
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     console.log($stateParams.id);
-    var stateParam = "NyZocQ==";
+    var stateParam = "MTUmaHE=";
 
     var other = $.jStorage.get("userid");
 
@@ -89,7 +89,11 @@
       } else if (data.length > 0) {
         $scope.template = TemplateService.changecontent("playing");
       } else if (!data.value) {
-        $state.go("intro");
+        $scope.template = TemplateService.changecontent("intro");
+        $scope.menutitle = NavigationService.makeactive("intro");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.bgClass = 'intro';
       }
 
       $scope.allQuestions = data;
