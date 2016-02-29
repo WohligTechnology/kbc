@@ -72,19 +72,23 @@
     $scope.navigation = NavigationService.getnav();
     console.log($stateParams.id);
     var stateParam = "NyZocQ==";
+
+    var other = $.jStorage.get("userid");
+
     if ($stateParams.id) {
       stateParam = $stateParams.id;
+      $.jStorage.set("userid", stateParam);
+    } else if (other) {
+      stateParam = other;
     }
 
     function populateQuestion(data) {
       console.log(data);
       if (data.type == "survey") {
         $scope.template = TemplateService.changecontent("survey");
-      }
-      else if(data.length > 0) {
+      } else if (data.length > 0) {
         $scope.template = TemplateService.changecontent("playing");
-      }
-      else if(!data.value){
+      } else if (!data.value) {
         $state.go("intro");
       }
 
@@ -92,7 +96,7 @@
       _.map($scope.allQuestions.questions, function(n) {
         if (n.type == "3") {
           n.value = [];
-          _.each(n.option,function(m) {
+          _.each(n.option, function(m) {
             n.value.push(false);
           });
         }
@@ -112,16 +116,14 @@
         var obj = {};
         if (n.type == "3") {
           var texts = [];
-          _.each(n.option,function(m,key) {
-            if(n.value[key])
-            {
+          _.each(n.option, function(m, key) {
+            if (n.value[key]) {
               texts.push(m.title);
             }
           });
           obj.answer = texts.join(',');
           obj.questionid = n.id;
-        }
-        else {
+        } else {
           obj.answer = n.value;
           obj.questionid = n.id;
         }
@@ -131,7 +133,7 @@
 
 
       console.log(values);
-      NavigationService.saveSurvey(stateParam,surveyId,values,function(data) {
+      NavigationService.saveSurvey(stateParam, surveyId, values, function(data) {
         console.log(data);
         NavigationService.pingHq(stateParam, populateQuestion);
       });
