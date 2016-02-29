@@ -1,5 +1,9 @@
 /*Start writing sass here*/
 @import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
+@import "../bower_components/flexslider/flexslider.css";
+@import "../bower_components/font-awesome/css/font-awesome.min.css";
+@import "../bower_components/angular-loading-bar/build/loading-bar.min.css";
 @font-face {
   font-family: "Walkway Rounded";
   src: url(../fonts/Walkway_rounded.ttf);
@@ -8,45 +12,33 @@
   font-family: "AG";
   src: url(../fonts/AkzidenzGrotesk-Extended_2.ttf);
 }
-@import url(https://fonts.googleapis.com/css?family=Nunito:400,300,700);
-@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
-@import "../bower_components/flexslider/flexslider.css";
-@import "../bower_components/font-awesome/css/font-awesome.min.css";
-@import "../bower_components/angular-loading-bar/build/loading-bar.min.css";
+
 $gray-base: #000 !default;
 $gray-darker: lighten($gray-base, 13.5%) !default; // #222
 $gray-dark: lighten($gray-base, 20%) !default; // #333
 $gray: lighten($gray-base, 33.5%) !default; // #555
 $gray-light: lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter: lighten($gray-base, 93.5%) !default; // #eee
+
 $background-color: #f7d237;
 $wish-name-bg: #fff2e1;
+
 $brand-primary: #0784c8 !default;
 $brand-success: #84ce3c !default;
 $brand-warning: #ffd61e !default;
 $brand-danger: #684703 !default;
 $brand-info: #000072 !default;
+
 $body-bg: #fff !default;
+
 $text-color: $gray-base !default;
 $link-color: $gray-base !default;
 $link-hover-color: $gray-base !default;
 $link-hover-decoration: none !default;
-$font-head-char: "AG",
-Helvetica,
-Arial,
-sans-serif !default;
-$font-head: "Walkway Rounded",
-Helvetica,
-Arial,
-sans-serif !default;
-$font-vac: "Aldo SemiBold",
-Helvetica,
-Arial,
-sans-serif !default;
-$font-work: "Abel Regular",
-Helvetica,
-Arial,
-sans-serif !default;
+
+$font-head-char: "AG", Helvetica, Arial, sans-serif !default;
+$font-head: "Walkway Rounded", Helvetica, Arial, sans-serif !default;
+
 $head-color: #684703;
 $border-radius-base: 0px !default;
 $border-radius-large: 0px !default;
@@ -283,4 +275,5 @@ img {
     }
   }
 }
+
 @import 'mobile';
