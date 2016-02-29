@@ -71,7 +71,7 @@
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     console.log($stateParams.id);
-    var stateParam = "MTUmaHE=";
+    var stateParam = "NyZocQ==";
     if ($stateParams.id) {
       stateParam = $stateParams.id;
     }
@@ -81,12 +81,13 @@
       if (data.type == "survey") {
         $scope.template = TemplateService.changecontent("survey");
       }
-      else if(!data.value){
-        $state.go("intro");
-      }
       else if(data.length > 0) {
         $scope.template = TemplateService.changecontent("playing");
       }
+      else if(!data.value){
+        $state.go("intro");
+      }
+
       $scope.allQuestions = data;
       _.map($scope.allQuestions.questions, function(n) {
         if (n.type == "3") {

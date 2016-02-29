@@ -90,7 +90,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
       controller: 'SurveyCtrl'
     });
 
-  $urlRouterProvider.otherwise("/intro");
+  $urlRouterProvider.otherwise("/playing");
 
 });
 
