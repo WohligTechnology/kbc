@@ -1,5 +1,4 @@
 /*Start writing sass here*/
-
 @import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
 @font-face {
   font-family: "Walkway Rounded";
@@ -10,12 +9,9 @@
   src: url(../fonts/AkzidenzGrotesk-Extended_2.ttf);
 }
 @import url(https://fonts.googleapis.com/css?family=Nunito:400,300,700);
-//@include font-face("A_little_sunshine", "../fonts/A_little_sunshine");
-//@include font-face("Abel Regular", "../fonts/Abel-Regular);
-//@include font-face("Aldo SemiBold", "../fonts/Aldo_SemiBold);
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "../bower_components/flexslider/flexslider.css";
-@import "../bower_components/fontawesome/css/font-awesome.min.css";
+@import "../bower_components/font-awesome/css/font-awesome.min.css";
 $gray-base: #000 !default;
 $gray-darker: lighten($gray-base, 13.5%) !default; // #222
 $gray-dark: lighten($gray-base, 20%) !default; // #333
