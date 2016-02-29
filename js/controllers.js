@@ -113,9 +113,9 @@
     NavigationService.pingHq(stateParam, populateQuestion);
 
     $scope.submitSurvey = function(surveyId, form) {
-      console.log(surveyId);
-      console.log(form);
+
       var form2 = _.cloneDeep(form);
+
       var values = _.map(form2, function(n) {
         var obj = {};
         if (n.type == "3") {
@@ -137,10 +137,17 @@
 
 
       console.log(values);
-      NavigationService.saveSurvey(stateParam, surveyId, values, function(data) {
-        console.log(data);
-        NavigationService.pingHq(stateParam, populateQuestion);
+      var value2 = _.filter(values, {
+        answer: undefined
       });
+
+      if (value2.length === 0 ) {
+        NavigationService.saveSurvey(stateParam, surveyId, values, function(data) {
+          console.log(data);
+          NavigationService.pingHq(stateParam, populateQuestion);
+        });
+      }
+
     };
     $scope.selectOption = function(play) {
       if (play.active === false || !play.active) {
