@@ -3,7 +3,7 @@
   .controller('IntroCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("intro");
-    $scope.menutitle = NavigationService.makeactive("intro");
+    $scope.menutitle = NavigationService.makeactive("Intro");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.bgClass = 'intro';
@@ -287,6 +287,20 @@
   .controller('SurveyCtrl', function($scope, TemplateService, NavigationService) {
     $scope.template = TemplateService.changecontent("survey");
     $scope.menutitle = NavigationService.makeactive("Survey");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+  })
+
+  .controller('WelcomeCtrl', function($scope, TemplateService, NavigationService) {
+    $scope.template = TemplateService.changecontent("welcome");
+    $scope.menutitle = NavigationService.makeactive("Welcome");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+  })
+
+  .controller('GetStartedCtrl', function($scope, TemplateService, NavigationService) {
+    $scope.template = TemplateService.changecontent("getstarted");
+    $scope.menutitle = NavigationService.makeactive("Lets Get Started");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })

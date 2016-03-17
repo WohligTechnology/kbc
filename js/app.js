@@ -17,7 +17,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
 
   $stateProvider
 
-    .state('intro', {
+  .state('intro', {
     url: "/intro",
     templateUrl: "views/template.html",
     controller: 'IntroCtrl'
@@ -30,65 +30,89 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
   })
 
   .state('work', {
-      url: "/work",
-      templateUrl: "views/template.html",
-      controller: 'WorkCtrl'
-    })
-    .state('playingWithoutId', {
-      url: "/playing",
-      templateUrl: "views/template.html",
-      controller: 'PlayingCtrl'
-    })
-    .state('playing', {
-      url: "/playing/:id",
-      templateUrl: "views/template.html",
-      controller: 'PlayingCtrl'
-    })
-    .state('question-1', {
-      url: "/question-1",
-      templateUrl: "views/template.html",
-      controller: 'Question-1Ctrl'
-    })
-    .state('question-2', {
-      url: "/question-2",
-      templateUrl: "views/template.html",
-      controller: 'Question-2Ctrl'
-    })
-    .state('question-5', {
-      url: "/question-5",
-      templateUrl: "views/template.html",
-      controller: 'Question-5Ctrl'
-    })
-    .state('question-6', {
-      url: "/question-6",
-      templateUrl: "views/template.html",
-      controller: 'Question-6Ctrl'
-    })
-    .state('question-7', {
-      url: "/question-7",
-      templateUrl: "views/template.html",
-      controller: 'Question-7Ctrl'
-    })
-    .state('question-8', {
-      url: "/question-8",
-      templateUrl: "views/template.html",
-      controller: 'Question-8Ctrl'
-    })
-    .state('question-9', {
-      url: "/question-9",
-      templateUrl: "views/template.html",
-      controller: 'Question-9Ctrl'
-    })
-    .state('question-10', {
-      url: "/question-10",
-      templateUrl: "views/template.html",
-      controller: 'Question-10Ctrl'
-    })
-    .state('survey', {
-      url: "/survey",
-      templateUrl: "views/template.html",
-      controller: 'SurveyCtrl'
-    });
+    url: "/work",
+    templateUrl: "views/template.html",
+    controller: 'WorkCtrl'
+  })
+
+  .state('playingWithoutId', {
+    url: "/playing",
+    templateUrl: "views/template.html",
+    controller: 'PlayingCtrl'
+  })
+
+  .state('playing', {
+    url: "/playing/:id",
+    templateUrl: "views/template.html",
+    controller: 'PlayingCtrl'
+  })
+
+  .state('question-1', {
+    url: "/question-1",
+    templateUrl: "views/template.html",
+    controller: 'Question-1Ctrl'
+  })
+
+  .state('question-2', {
+    url: "/question-2",
+    templateUrl: "views/template.html",
+    controller: 'Question-2Ctrl'
+  })
+
+  .state('question-5', {
+    url: "/question-5",
+    templateUrl: "views/template.html",
+    controller: 'Question-5Ctrl'
+  })
+
+  .state('question-6', {
+    url: "/question-6",
+    templateUrl: "views/template.html",
+    controller: 'Question-6Ctrl'
+  })
+
+  .state('question-7', {
+    url: "/question-7",
+    templateUrl: "views/template.html",
+    controller: 'Question-7Ctrl'
+  })
+
+  .state('question-8', {
+    url: "/question-8",
+    templateUrl: "views/template.html",
+    controller: 'Question-8Ctrl'
+  })
+
+  .state('question-9', {
+    url: "/question-9",
+    templateUrl: "views/template.html",
+    controller: 'Question-9Ctrl'
+  })
+
+  .state('question-10', {
+    url: "/question-10",
+    templateUrl: "views/template.html",
+    controller: 'Question-10Ctrl'
+  })
+
+  .state('survey', {
+    url: "/survey",
+    templateUrl: "views/template.html",
+    controller: 'SurveyCtrl'
+  })
+
+  .state('welcome', {
+    url: "/welcome",
+    templateUrl: "views/template.html",
+    controller: 'WelcomeCtrl'
+  })
+
+  .state('getstarted', {
+    url: "/getstarted",
+    templateUrl: "views/template.html",
+    controller: 'GetStartedCtrl'
+  })
+  ;
 
   $urlRouterProvider.otherwise("/playing");
 
@@ -103,27 +127,10 @@ firstapp.filter('serverimage', function() {
 
 firstapp.directive("minHeight", function($window) {
   return function(scope, element, attrs) {
-    console.log(element);
     var minheight = '';
     minheight = $(window).height();
-    console.log(minheight);
     element.css({
       "min-height": minheight + "px"
     });
-  };
-});
-
-firstapp.directive('autoHeight', function($compile, $parse) {
-  return {
-    restrict: 'EA',
-    replace: false,
-    link: function($scope, element, attrs) {
-      var $element = $(element);
-      var windowHeight = $(window).height();
-      $element.css("min-height", windowHeight);
-      setTimeout(function() {
-        $element.css("min-height", windowHeight);
-      });
-    }
   };
 });
