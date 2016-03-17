@@ -151,7 +151,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   TemplateService.header = "";
   TemplateService.footer = "";
   $scope.navigation = NavigationService.getnav();
-  $scope.bgColor = "bg-green";
+  $scope.bgColor = "bg-red";
 })
 
 .controller('headerctrl', function($scope, TemplateService) {

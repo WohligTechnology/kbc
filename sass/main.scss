@@ -83,12 +83,27 @@ $menu-height: 74px !default;
 }
 .bg-red {
   background-color: $red;
+  .btn-yellow {
+    @include button-variant($red, $background-color, $background-color);
+  }
 }
 .bg-blue {
   background-color: $brand-primary;
+  .btn-yellow {
+    @include button-variant($brand-primary, $background-color, $background-color);;
+  }
 }
 .bg-green {
   background-color: $green;
+  .btn-yellow {
+    @include button-variant($green, $background-color, $background-color);
+  }
+}
+.btn-round {
+    font-size: 18px;
+    padding: 6px 15px;
+    min-width: 120px;
+    border-radius: 5px;
 }
 .intro {
     position: relative;
@@ -166,6 +181,12 @@ $menu-height: 74px !default;
       min-height: auto;
       margin: 0;
     }
+}
+.btn {
+  @include transition(all 300ms ease);
+}
+.btn-yellow {
+  @include button-variant(white, $background-color, $background-color);
 }
 
 //jagruti css
@@ -319,19 +340,30 @@ $menu-height: 74px !default;
 }
 .thought-box {
   font-family: $font-head;
-  font-size: 35px;
+  font-size: 25px;
   padding: 15px;
-  position: relative;;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  position: relative;
+  margin-bottom: 100px;
+
   &:after {
     content: '';
     width: 0;
     height: 0;
-    border-left: 40px solid transparent;
-    border-right: 40px solid transparent;
-    border-top: 90px solid $peach-bg;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 70px solid $peach-bg;
     position: absolute;
-    bottom: -80px;
+    bottom: -70px;
     left: 50%;
+    @include transform(translateX(-50%));
   }
+}
+.responsive-center {
+  margin: 0 auto;
+}
+.padding-vertical {
+  padding: 30px 0 10px;
 }
 @import 'mobile';
