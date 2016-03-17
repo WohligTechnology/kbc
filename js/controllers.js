@@ -154,9 +154,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.bgColor = "bg-red";
 })
 
-.controller('headerctrl', function($scope, TemplateService) {
+.controller('headerctrl', function($scope, TemplateService, NavigationService) {
   $scope.template = TemplateService;
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
     $(window).scrollTop(0);
   });
+  function getLogo(data) {
+    $scope.logo = data;
+    console.log($scope.logo);
+  }
+  NavigationService.sendlogo(getLogo);
+
 });
