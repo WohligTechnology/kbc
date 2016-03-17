@@ -1,74 +1,72 @@
-<div class="bg-warning" min-height>
-  <div class="container relative">
-    <img src="img/form-left.png" alt="left" class="left absolute"/>
-    <img src="img/form-right.png" alt="" class="right absolute"/>
-    <div class="bg-light-warning hq-form">
+<div class="container relative">
+  <img src="img/form-left.png" alt="left" class="left absolute"/>
+  <img src="img/form-right.png" alt="" class="right absolute"/>
+  <div class="bg-light-warning hq-form">
 
-      <form class="form-horizontal">
-        <h2 ng-bind="allQuestions.surveyname">Form</h2>
-        <div class="" ng-repeat="question in allQuestions.questions">
-          <div class="form-group" ng-if="question.type=='1'">
-            <label class="col-sm-3 control-label" ng-bind="question.content">Input</label>
+    <form class="form-horizontal">
+      <h2 ng-bind="allQuestions.surveyname">Form</h2>
+      <div class="" ng-repeat="question in allQuestions.questions">
+        <div class="form-group" ng-if="question.type=='1'">
+          <label class="col-sm-3 control-label" ng-bind="question.content">Input</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" required ng-model="question.value">
+          </div>
+        </div>
+        <div class="form-group" ng-if="question.type=='4'">
+          <label class="col-sm-3 control-label" ng-bind="question.content">Select</label>
+          <div class="col-sm-5">
+            <select class="form-control" required ng-model="question.value">
+              <option value="" selected>Please select</option>
+              <option ng-repeat="option1 in question.option" value="{{option1.title}}" ng-bind="option1.title"></option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" ng-if="question.type=='2'">
+          <label class="col-sm-3 control-label" ng-bind="question.content">Textarea</label>
+          <div class="col-sm-9">
+            <textarea class="form-control" rows="3" required ng-model="question.value"></textarea>
+          </div>
+        </div>
+        <div class="bot-marg" ng-if="question.type=='3'">
+          <div class="row">
+            <div class="col-sm-3">
+              <h4 ng-bind="question.content"></h4>
+            </div>
             <div class="col-sm-9">
-              <input type="text" class="form-control" required ng-model="question.value">
-            </div>
-          </div>
-          <div class="form-group" ng-if="question.type=='4'">
-            <label class="col-sm-3 control-label" ng-bind="question.content">Select</label>
-            <div class="col-sm-5">
-              <select class="form-control" required ng-model="question.value">
-                <option value="" selected>Please select</option>
-                <option ng-repeat="option1 in question.option" value="{{option1.title}}" ng-bind="option1.title"></option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group" ng-if="question.type=='2'">
-            <label class="col-sm-3 control-label" ng-bind="question.content">Textarea</label>
-            <div class="col-sm-9">
-              <textarea class="form-control" rows="3" required ng-model="question.value"></textarea>
-            </div>
-          </div>
-          <div class="bot-marg" ng-if="question.type=='3'">
-            <div class="row">
-              <div class="col-sm-3">
-                <h4 ng-bind="question.content"></h4>
-              </div>
-              <div class="col-sm-9">
-                <div class="checkbox" ng-repeat="option1 in question.option">
-                  <label>
-                    <input type="checkbox" value="option1.title" ng-bind="option1.title" ng-model="question.value[$index]">
-                    {{option1.title}}
-                  </label>
-                </div>
+              <div class="checkbox" ng-repeat="option1 in question.option">
+                <label>
+                  <input type="checkbox" value="option1.title" ng-bind="option1.title" ng-model="question.value[$index]">
+                  {{option1.title}}
+                </label>
               </div>
             </div>
-
-          </div>
-          <div class="bot-marg" ng-if="question.type=='5'">
-            <div class="row">
-              <div class="col-sm-3">
-                <h4 ng-bind="question.content"></h4>
-              </div>
-              <div class="col-sm-9">
-                <div class="radio" ng-repeat="option1 in question.option">
-                  <label>
-                    <input type="radio" value="{{option1.title}}" checked name="option" required ng-model="question.value">
-                    {{option1.title}}
-                  </label>
-                </div>
-              </div>
-            </div>
-
           </div>
 
         </div>
-        <div class="form-group">
-          <div class="col-sm-offset-3 col-sm-9">
-            <button ng-click="submitSurvey(allQuestions.surveyid,allQuestions.questions)" class="btn btn-primary">Submit</button>
+        <div class="bot-marg" ng-if="question.type=='5'">
+          <div class="row">
+            <div class="col-sm-3">
+              <h4 ng-bind="question.content"></h4>
+            </div>
+            <div class="col-sm-9">
+              <div class="radio" ng-repeat="option1 in question.option">
+                <label>
+                  <input type="radio" value="{{option1.title}}" checked name="option" required ng-model="question.value">
+                  {{option1.title}}
+                </label>
+              </div>
+            </div>
           </div>
-        </div>
-      </form>
 
-    </div>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <button ng-click="submitSurvey(allQuestions.surveyid,allQuestions.questions)" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+
   </div>
 </div>

@@ -1,11 +1,11 @@
-<div class="playing bg" min-height>
-    <div class="container">
+<div class="playing">
+    <div class="small-container">
         <div class="wish-holder">
-            <div class="wish-head">
-                <p>{{playing.text}}</p>
-            </div>
+          <div class="wish-head">
+              <p>{{playing.text}}</p>
+          </div>
             <div class="row" ng-if="playing.type==1 && playing.type!=''">
-                <div class="col-sm-6" ng-repeat="play in playing.option">
+                <div class="col-sm-6 pointer" ng-repeat="play in playing.option">
                     <div class="img-holder" ng-click="selectOption(play)">
                         <img ng-src="{{play.image|serverimage}}" alt="" class="img-responsive">
                         <span class="check" ng-if="play.active"><i class="fa fa-check-circle"></i></span>
@@ -15,7 +15,7 @@
 
 
             <div class="row" ng-if="playing.type==2 && playing.type!=''">
-                <div class="col-md-4 shift" ng-repeat="play in playing.option">
+                <div class="col-md-4 shift pointer" ng-repeat="play in playing.option">
                     <div class="img-holder" ng-click="selectOption(play)">
                         <img ng-src="{{play.image|serverimage}}" alt="" class="img-responsive">
                         <span class="check" ng-if="play.active"><i class="fa fa-check-circle"></i></span>
@@ -24,7 +24,7 @@
             </div>
 
             <div class="row" ng-if="playing.type==3 && playing.type!=''">
-                <div class="col-md-3 col-sm-6 col-xs-6" ng-repeat="play in playing.option">
+                <div class="col-md-3 col-sm-6 col-xs-6 pointer" ng-repeat="play in playing.option">
                     <div class="img-holder" ng-click="selectOption(play)">
                         <img ng-src="{{play.image|serverimage}}" alt="" class="img-responsive">
                         <span class="check" ng-if="play.active"><i class="fa fa-check-circle"></i></span>
@@ -33,8 +33,5 @@
             </div>
 
         </div>
-    </div>
-    <div class="logo-holder clearfix">
-        <img src="img/logo.png" alt="HQ" class="img-responsive pull-right">
     </div>
 </div>

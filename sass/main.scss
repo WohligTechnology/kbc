@@ -21,8 +21,8 @@ $gray: lighten($gray-base, 33.5%) !default; // #555
 $gray-light: lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter: lighten($gray-base, 93.5%) !default; // #eee
 
-$background-color: #f7d237;
-$peach-bg: #fff2e1;
+$background-color: #ffd61e !default;
+$peach-bg: #fff2e1 !default;
 
 $brand-primary: #0784c8 !default;
 $brand-success: #84ce3c !default;
@@ -90,9 +90,6 @@ $menu-height: 74px !default;
 .bg-green {
   background-color: $green;
 }
-img {
-    margin: 0 auto;
-}
 .intro {
     position: relative;
     background-color: $red;
@@ -113,15 +110,23 @@ img {
     }
 }
 .logo-holder {
-    position: absolute;
-    bottom: 2%;
-    right: 1%;
-    @include transform(translate(2%, 1%))
+  padding: 10px;
+  img {
+    float: right;
+    height: 40px;
+    width: auto;
+  }
+}
+.no-pad-bot {
+  padding-bottom: 0;
+}
+.no-pad-top {
+  padding-top: 0;
 }
 .bg {
-    padding: 35px 0;
+    padding: 10px 0;
     position: relative;
-    background-color: $background-color;
+    // background-color: $background-color;
 }
 .wish-head {
     min-height: 40px;
@@ -137,7 +142,7 @@ img {
 }
 .img-holder {
     min-height: 150px;
-    margin: 20px 0;
+    padding: 15px 0;
 	  position: relative;
 	.check {
 		color: $head-color;
@@ -157,6 +162,10 @@ img {
 }
 .wish-holder {
     @extend.img-holder;
+    &.question {
+      min-height: auto;
+      margin: 0;
+    }
 }
 
 //jagruti css
@@ -213,8 +222,9 @@ img {
   border-radius: 5px;
   padding: 30px;
   font-family: "Nunito";
-  margin: 60px 130px 0;
+  margin: 10px 130px 0;
   color: #383939;
+  min-height: 300px;
 
   h4, .h4 {
     font-size: 14px;
@@ -291,5 +301,37 @@ img {
     }
   }
 }
-
+.pointer {
+  cursor: pointer;
+}
+.small-container {
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.img-center {
+  text-align: center;
+  img {
+    float: none;
+  }
+}
+.thought-box {
+  font-family: $font-head;
+  font-size: 35px;
+  padding: 15px;
+  position: relative;;
+  &:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-top: 90px solid $peach-bg;
+    position: absolute;
+    bottom: -80px;
+    left: 50%;
+  }
+}
 @import 'mobile';
