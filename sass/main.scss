@@ -4,6 +4,7 @@
 @import "../bower_components/flexslider/flexslider.css";
 @import "../bower_components/font-awesome/css/font-awesome.min.css";
 @import "../bower_components/angular-loading-bar/build/loading-bar.min.css";
+
 @font-face {
   font-family: "Walkway Rounded";
   src: url(../fonts/Walkway_rounded.ttf);
@@ -21,13 +22,16 @@ $gray-light: lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter: lighten($gray-base, 93.5%) !default; // #eee
 
 $background-color: #f7d237;
-$wish-name-bg: #fff2e1;
+$peach-bg: #fff2e1;
 
 $brand-primary: #0784c8 !default;
 $brand-success: #84ce3c !default;
 $brand-warning: #ffd61e !default;
 $brand-danger: #684703 !default;
 $brand-info: #000072 !default;
+$red: #f55069 !default;
+$green: #00ac93 !default;
+$yellow: #eeec3b !default;
 
 $body-bg: #fff !default;
 
@@ -75,14 +79,23 @@ $menu-height: 74px !default;
   background-color: $brand-warning;
 }
 .bg-light-warning {
-  background-color: $wish-name-bg;
+  background-color: $peach-bg;
+}
+.bg-red {
+  background-color: $red;
+}
+.bg-blue {
+  background-color: $brand-primary;
+}
+.bg-green {
+  background-color: $green;
 }
 img {
     margin: 0 auto;
 }
 .intro {
     position: relative;
-    background-color: #f55069;
+    background-color: $red;
     .intro-holder {
         position: absolute;
         top: 50%;
@@ -139,7 +152,7 @@ img {
     p {
         padding: 10px;
         border-radius: 10px;
-        background-color: $wish-name-bg;
+        background-color: $peach-bg;
     }
 }
 .wish-holder {
@@ -237,7 +250,7 @@ img {
   .btn {
     border: none;
     border-radius: 4px;
-    color: $wish-name-bg;
+    color: $peach-bg;
     @include transition(all ease 300ms);
   }
 
