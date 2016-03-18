@@ -34,11 +34,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     } else if (data.length > 0) {
       $scope.template = TemplateService.changecontent("playing");
     } else if (!data.value) {
-      $scope.template = TemplateService.changecontent("intro");
-      $scope.menutitle = NavigationService.makeactive("intro");
+      $scope.template = TemplateService.changecontent("thankyou");
+      $scope.menutitle = NavigationService.makeactive("Thank You");
       TemplateService.title = $scope.menutitle;
+      TemplateService.header = "";
+      TemplateService.footer = "";
       $scope.navigation = NavigationService.getnav();
-      $scope.bgClass = 'intro';
+      $scope.bgColor = 'bg-green';
     }
 
     $scope.allQuestions = data;
