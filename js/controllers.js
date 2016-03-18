@@ -163,7 +163,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   });
   function getLogo(data) {
     $scope.logo = data;
-    console.log($scope.logo);
   }
   NavigationService.sendlogo(getLogo);
 
