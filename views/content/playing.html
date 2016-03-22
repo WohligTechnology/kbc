@@ -32,6 +32,15 @@
                 </div>
             </div>
 
+            <div class="row-five" ng-if="playing.type==4 && playing.type!=''">
+                <div class="inlined pointer" ng-repeat="play in playing.option">
+                    <div class="img-holder" ng-click="selectOption(play)">
+                        <img ng-src="{{play.image|serverimage}}" alt="" class="img-responsive">
+                        <span class="check" ng-if="play.active"><i class="fa fa-check-circle"></i></span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
