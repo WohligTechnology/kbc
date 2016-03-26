@@ -97,6 +97,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
   };
   $scope.selectOption = function(play) {
+    $(window).scrollTop(0);
     if (play.active === false || !play.active) {
       play.active = true;
     } else {

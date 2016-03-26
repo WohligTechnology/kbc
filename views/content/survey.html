@@ -3,28 +3,31 @@
   <img src="img/form-right.png" alt="" class="right absolute"/>
   <div class="bg-light-warning hq-form">
 
-    <form class="form-horizontal">
+    <form class="form-horizontal" name="survey">
       <h2 ng-bind="allQuestions.surveyname">Form</h2>
       <div class="" ng-repeat="question in allQuestions.questions">
         <div class="form-group" ng-if="question.type=='1'">
-          <label class="col-sm-3 control-label" ng-bind="question.content">Input</label>
+          <label class="col-sm-3 control-label" ng-bind="question.content"></label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" required ng-model="question.value">
+            <input type="text" class="form-control"  ng-required="question.isrequired=='1'"  name="question{{$index}}" ng-model="question.value">
+            <p ng-show="survey.question{{$index}}.$error.required && survey.question{{$index}}.$touched" class="red">Please enter the above field!</p>
           </div>
         </div>
         <div class="form-group" ng-if="question.type=='4'">
-          <label class="col-sm-3 control-label" ng-bind="question.content">Select</label>
+          <label class="col-sm-3 control-label" ng-bind="question.content"></label>
           <div class="col-sm-5">
-            <select class="form-control" required ng-model="question.value">
+            <select class="form-control"  ng-required="question.isrequired=='1'"  name="question{{$index}}" ng-model="question.value">
               <option value="" selected>Please select</option>
               <option ng-repeat="option1 in question.option" value="{{option1.title}}" ng-bind="option1.title"></option>
             </select>
+            <p ng-show="survey.question{{$index}}.$error.required && survey.question{{$index}}.$touched" class="red">Please select from the above options!</p>
           </div>
         </div>
         <div class="form-group" ng-if="question.type=='2'">
-          <label class="col-sm-3 control-label" ng-bind="question.content">Textarea</label>
+          <label class="col-sm-3 control-label" ng-bind="question.content"></label>
           <div class="col-sm-9">
-            <textarea class="form-control" rows="3" required ng-model="question.value"></textarea>
+            <textarea class="form-control" rows="3"  ng-required="question.isrequired=='1'"  name="question{{$index}}" ng-model="question.value"></textarea>
+            <p ng-show="survey.question{{$index}}.$error.required && survey.question{{$index}}.$touched" class="red">Please enter the above field!</p>
           </div>
         </div>
         <div class="bot-marg" ng-if="question.type=='3'">
@@ -39,6 +42,7 @@
                   {{option1.title}}
                 </label>
               </div>
+              <!-- <p ng-show="survey.question{{$index}}.$error.required && survey.question{{$index}}.$touched" class="red">Please select from the above options!</p> -->
             </div>
           </div>
 
@@ -51,19 +55,19 @@
             <div class="col-sm-9">
               <div class="radio" ng-repeat="option1 in question.option">
                 <label>
-                  <input type="radio" value="{{option1.title}}" checked name="option" required ng-model="question.value">
+                  <input type="radio" value="{{option1.title}}" checked name="question{{$index}}" ng-model="question.value">
                   {{option1.title}}
                 </label>
               </div>
+              <!-- <p ng-show="survey.question{{$index}}.$error.required && survey.question{{$index}}.$touched" class="red">Please select from the above options!</p> -->
             </div>
           </div>
 
         </div>
-
       </div>
       <div class="form-group">
         <div class="col-sm-offset-3 col-sm-9">
-          <button ng-click="submitSurvey(allQuestions.surveyid,allQuestions.questions)" class="btn btn-primary">Submit</button>
+          <button ng-click="submitSurvey(allQuestions.surveyid,allQuestions.questions)" class="btn btn-primary" ng-disabled="survey.$invalid">Submit</button>
         </div>
       </div>
     </form>
