@@ -137,7 +137,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.bgColor = "bg-warning";
 })
 
-.controller('WelcomeCtrl', function($scope, TemplateService, NavigationService) {
+.controller('WelcomeCtrl', function($scope, TemplateService, NavigationService, $state,$stateParams) {
   $scope.template = TemplateService.changecontent("welcome");
   $scope.menutitle = NavigationService.makeactive("Welcome");
   TemplateService.title = $scope.menutitle;
@@ -145,6 +145,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   TemplateService.footer = "";
   $scope.navigation = NavigationService.getnav();
   $scope.bgColor = "bg-green";
+
+  $scope.getSetGo = function(){
+    if ($stateParams.id) {
+      $state.go('playing',{id:$stateParams.id});
+    } else {
+      $state.go('playingWithoutId');
+    }
+
+  };
 })
 
 .controller('ThankYouCtrl', function($scope, TemplateService, NavigationService) {

@@ -46,6 +46,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
     templateUrl: "views/template.html",
     controller: 'WelcomeCtrl'
   })
+  .state('welcomeWithoutId', {
+    url: "/welcome/:id",
+    templateUrl: "views/template.html",
+    controller: 'WelcomeCtrl'
+  })
 
   .state('thankyou', {
     url: "/thankyou",
