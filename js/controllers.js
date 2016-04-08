@@ -61,69 +61,101 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
   $scope.submitSurvey = function(surveyId, form) {
 
-    var form2 = _.cloneDeep(form);
-
-    var values = _.map(form2, function(n) {
-      var obj = {};
-      if (n.type == "3") {
-        var texts = [];
-        _.each(n.option, function(m, key) {
-          if (n.value[key]) {
-            texts.push(m.title);
-          }
-        });
-        obj.answer = texts.join(',');
-        obj.questionid = n.id;
-      } else {
-        obj.answer = n.value;
-        obj.questionid = n.id;
-      }
-
-      return obj;
-    });
-
-
-    console.log(values);
-    var value2 = _.filter(values, {
-      answer: undefined
-    });
-
-    if (value2.length === 0) {
-      NavigationService.saveSurvey(stateParam, surveyId, values, function(data) {
-        console.log(data);
-        NavigationService.pingHq(stateParam, populateQuestion);
-      });
-    }
+    // var form2 = _.cloneDeep(form);
+    //
+    // var values = _.map(form2, function(n) {
+    //   var obj = {};
+    //   if (n.type == "3") {
+    //     var texts = [];
+    //     _.each(n.option, function(m, key) {
+    //       if (n.value[key]) {
+    //         texts.push(m.title);
+    //       }
+    //     });
+    //     obj.answer = texts.join(',');
+    //     obj.questionid = n.id;
+    //   } else {
+    //     obj.answer = n.value;
+    //     obj.questionid = n.id;
+    //   }
+    //
+    //   return obj;
+    // });
+    //
+    //
+    // console.log(values);
+    // var value2 = _.filter(values, {
+    //   answer: undefined
+    // });
+    //
+    // if (value2.length === 0) {
+    //   NavigationService.saveSurvey(stateParam, surveyId, values, function(data) {
+    //     console.log(data);
+    //     NavigationService.pingHq(stateParam, populateQuestion);
+    //   });
+    // }
 
   };
+  $scope.anss = [];
+  $scope.nextQ = function() {
+
+        NavigationService.saveAnswer(stateParam, $scope.playing.question, play.id, $scope.playing.test, function(data) {
+          // if (data != "true") {
+          //   $scope.questionIndex = 0;
+          // }
+          // if ($scope.questionIndex < $scope.allQuestions.length - 1) {
+          //   $scope.questionIndex++;
+          //   $scope.playing = $scope.allQuestions[$scope.questionIndex];
+          // } else {
+          //   $state.go('intro');
+          // }
+
+          NavigationService.pingHq(stateParam, populateQuestion);
+        });
+  };
+
+
   $scope.selectOption = function(play) {
     $(window).scrollTop(0);
+
+    var ispresent = _.findWhere($scope.anss, play.id);
+    if (ispresent) {
+      $scope.anss = _.filter($scope.anss, function(n) {
+        return n != play.id;
+      });
+    } else {
+      $scope.anss.push(play.id);
+    }
+    console.log($scope.anss);
+
     if (play.active === false || !play.active) {
       play.active = true;
+
     } else {
       play.active = false;
     }
-    cfpLoadingBar.start();
+
+    // cfpLoadingBar.start();
 
 
 
-    NavigationService.saveAnswer(stateParam, $scope.playing.question, play.id, $scope.playing.test, function(data) {
-      // if (data != "true") {
-      //   $scope.questionIndex = 0;
-      // }
-      // if ($scope.questionIndex < $scope.allQuestions.length - 1) {
-      //   $scope.questionIndex++;
-      //   $scope.playing = $scope.allQuestions[$scope.questionIndex];
-      // } else {
-      //   $state.go('intro');
-      // }
-
-      NavigationService.pingHq(stateParam, populateQuestion);
-
-
-      cfpLoadingBar.complete();
-
-    });
+    // NavigationService.saveAnswer(stateParam, $scope.playing.question, play.id, $scope.playing.test, function(data) {
+    //   // if (data != "true") {
+    //   //   $scope.questionIndex = 0;
+    //   // }
+    //   // if ($scope.questionIndex < $scope.allQuestions.length - 1) {
+    //   //   $scope.questionIndex++;
+    //   //   $scope.playing = $scope.allQuestions[$scope.questionIndex];
+    //   // } else {
+    //   //   $state.go('intro');
+    //   // }
+    //
+    //   NavigationService.pingHq(stateParam, populateQuestion);
+    //
+    //
+    //   cfpLoadingBar.complete();
+    //
+    // });
 
   };
 
@@ -137,7 +169,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.bgColor = "bg-warning";
 })
 
-.controller('WelcomeCtrl', function($scope, TemplateService, NavigationService, $state,$stateParams) {
+.controller('WelcomeCtrl', function($scope, TemplateService, NavigationService, $state, $stateParams) {
   $scope.template = TemplateService.changecontent("welcome");
   $scope.menutitle = NavigationService.makeactive("Welcome");
   TemplateService.title = $scope.menutitle;
@@ -146,9 +178,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
   $scope.bgColor = "bg-green";
 
-  $scope.getSetGo = function(){
+  $scope.getSetGo = function() {
     if ($stateParams.id) {
-      $state.go('playing',{id:$stateParams.id});
+      $state.go('playing', {
+        id: $stateParams.id
+      });
     } else {
       $state.go('playingWithoutId');
     }
@@ -171,6 +205,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
     $(window).scrollTop(0);
   });
+
   function getLogo(data) {
     $scope.logo = data;
   }
