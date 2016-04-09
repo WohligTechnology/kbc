@@ -47,6 +47,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     _.map($scope.allQuestions.questions, function(n) {
       if (n.type == "3") {
         n.value = [];
+        n.touch = false;
+        if (n.isrequired == "1") {
+          n.values = [];
+        }
         _.each(n.option, function(m) {
           n.value.push(false);
         });
@@ -59,41 +63,52 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
   NavigationService.pingHq(stateParam, populateQuestion);
 
+  $scope.updateQuestionValue = function(choice, question){
+        question.touch = true;
+        question.values = question.values || [];
+        if(choice.checked){
+            question.values.push(choice.id);
+            question.values = _.uniq(question.values);
+        }else{
+            question.values = _.without(question.values, choice.id);
+        }
+    };
+
   $scope.submitSurvey = function(surveyId, form) {
 
-    // var form2 = _.cloneDeep(form);
-    //
-    // var values = _.map(form2, function(n) {
-    //   var obj = {};
-    //   if (n.type == "3") {
-    //     var texts = [];
-    //     _.each(n.option, function(m, key) {
-    //       if (n.value[key]) {
-    //         texts.push(m.title);
-    //       }
-    //     });
-    //     obj.answer = texts.join(',');
-    //     obj.questionid = n.id;
-    //   } else {
-    //     obj.answer = n.value;
-    //     obj.questionid = n.id;
-    //   }
-    //
-    //   return obj;
-    // });
-    //
-    //
-    // console.log(values);
-    // var value2 = _.filter(values, {
-    //   answer: undefined
-    // });
-    //
-    // if (value2.length === 0) {
-    //   NavigationService.saveSurvey(stateParam, surveyId, values, function(data) {
-    //     console.log(data);
-    //     NavigationService.pingHq(stateParam, populateQuestion);
-    //   });
-    // }
+    var form2 = _.cloneDeep(form);
+
+    var values = _.map(form2, function(n) {
+      var obj = {};
+      if (n.type == "3") {
+        var texts = [];
+        _.each(n.option, function(m, key) {
+          if (n.value[key]) {
+            texts.push(m.title);
+          }
+        });
+        obj.answer = texts.join(',');
+        obj.questionid = n.id;
+      } else {
+        obj.answer = n.value;
+        obj.questionid = n.id;
+      }
+
+      return obj;
+    });
+
+
+    console.log(values);
+    var value2 = _.filter(values, {
+      answer: undefined
+    });
+
+    if (value2.length === 0) {
+      NavigationService.saveSurvey(stateParam, surveyId, values, function(data) {
+        console.log(data);
+        NavigationService.pingHq(stateParam, populateQuestion);
+      });
+    }
 
   };
   $scope.anss = [];
