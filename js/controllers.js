@@ -45,15 +45,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.allQuestions = data;
     _.map($scope.allQuestions.questions, function(n) {
-      if (n.type == "3") {
-        n.value = [];
-        n.touch = false;
-        if (n.isrequired == "1") {
-          n.values = [];
-        }
-        _.each(n.option, function(m) {
-          n.value.push(false);
-        });
+      switch (n.type) {
+        case "3":
+          n.value = [];
+          n.touch = false;
+          if (n.isrequired == "1") {
+            n.values = [];
+          }
+          _.each(n.option, function(m) {
+            n.value.push(false);
+          });
+          break;
+        case "5":
+          n.touch = false;
+          if (n.isrequired == "1") {
+            n.values = [];
+          }
+          break;
+        default:
       }
       return n;
     });
@@ -63,16 +72,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
   NavigationService.pingHq(stateParam, populateQuestion);
 
-  $scope.updateQuestionValue = function(choice, question){
-        question.touch = true;
-        question.values = question.values || [];
-        if(choice.checked){
-            question.values.push(choice.id);
-            question.values = _.uniq(question.values);
-        }else{
-            question.values = _.without(question.values, choice.id);
-        }
-    };
+  // for checkbox and radio button validation
+  $scope.updateQuestionValue = function(choice, question) {
+    question.touch = true;
+    question.values = question.values || [];
+    if (choice.checked) {
+      question.values.push(choice.id);
+      question.values = _.uniq(question.values);
+    } else {
+      question.values = _.without(question.values, choice.id);
+    }
+  };
 
   $scope.submitSurvey = function(surveyId, form) {
 
@@ -103,30 +113,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       answer: undefined
     });
 
-    if (value2.length === 0) {
+    // if (value2.length === 0) {
+
       NavigationService.saveSurvey(stateParam, surveyId, values, function(data) {
         console.log(data);
         NavigationService.pingHq(stateParam, populateQuestion);
       });
-    }
+      
+    // }
 
   };
   $scope.anss = [];
   $scope.nextQ = function() {
 
-        NavigationService.saveAnswer(stateParam, $scope.playing.question, play.id, $scope.playing.test, function(data) {
-          // if (data != "true") {
-          //   $scope.questionIndex = 0;
-          // }
-          // if ($scope.questionIndex < $scope.allQuestions.length - 1) {
-          //   $scope.questionIndex++;
-          //   $scope.playing = $scope.allQuestions[$scope.questionIndex];
-          // } else {
-          //   $state.go('intro');
-          // }
+    NavigationService.saveAnswer(stateParam, $scope.playing.question, play.id, $scope.playing.test, function(data) {
+      // if (data != "true") {
+      //   $scope.questionIndex = 0;
+      // }
+      // if ($scope.questionIndex < $scope.allQuestions.length - 1) {
+      //   $scope.questionIndex++;
+      //   $scope.playing = $scope.allQuestions[$scope.questionIndex];
+      // } else {
+      //   $state.go('intro');
+      // }
 
-          NavigationService.pingHq(stateParam, populateQuestion);
-        });
+      NavigationService.pingHq(stateParam, populateQuestion);
+    });
   };
 
 

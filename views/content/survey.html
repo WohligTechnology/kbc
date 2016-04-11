@@ -1,6 +1,6 @@
 <div class="container relative">
-  <img src="img/form-left.png" alt="left" class="left absolute"/>
-  <img src="img/form-right.png" alt="" class="right absolute"/>
+  <img src="img/form-left.png" alt="left" class="left absolute" />
+  <img src="img/form-right.png" alt="" class="right absolute" />
   <div class="bg-light-warning hq-form">
 
     <form class="form-horizontal" name="survey">
@@ -9,14 +9,14 @@
         <div class="form-group" ng-if="question.type=='1'">
           <label class="col-sm-3 control-label">{{question.content}}<span ng-if="question.isrequired=='1'">*</span></label>
           <div class="col-sm-9">
-            <input type="text" class="form-control"  ng-required="question.isrequired=='1'"  name="question{{$index}}" ng-model="question.value">
+            <input type="text" class="form-control" ng-required="question.isrequired=='1'" name="question{{$index}}" ng-model="question.value">
             <p ng-show="survey.question{{$index}}.$error.required && survey.question{{$index}}.$touched" class="red">Please enter the above field!</p>
           </div>
         </div>
         <div class="form-group" ng-if="question.type=='4'">
           <label class="col-sm-3 control-label">{{question.content}}<span ng-if="question.isrequired=='1'">*</span></label>
           <div class="col-sm-5">
-            <select class="form-control"  ng-required="question.isrequired=='1'"  name="question{{$index}}" ng-model="question.value">
+            <select class="form-control" ng-required="question.isrequired=='1'" name="question{{$index}}" ng-model="question.value">
               <option value="" selected>Please select</option>
               <option ng-repeat="option1 in question.option" value="{{option1.title}}" ng-bind="option1.title"></option>
             </select>
@@ -26,7 +26,7 @@
         <div class="form-group" ng-if="question.type=='2'">
           <label class="col-sm-3 control-label">{{question.content}}<span ng-if="question.isrequired=='1'">*</span></label>
           <div class="col-sm-9">
-            <textarea class="form-control" rows="3"  ng-required="question.isrequired=='1'"  name="question{{$index}}" ng-model="question.value"></textarea>
+            <textarea class="form-control" rows="3" ng-required="question.isrequired=='1'" name="question{{$index}}" ng-model="question.value"></textarea>
 
             <p ng-show="survey.question{{$index}}.$error.required && survey.question{{$index}}.$touched" class="red">Please enter the above field!</p>
           </div>
@@ -38,24 +38,23 @@
             </div>
             <div class="col-sm-9">
               <div class="checkbox" ng-repeat="option1 in question.option">
+
                 <!-- <label>
                   <div class="checkbox-group required">
                     <input type="checkbox" value="option1.title" ng-bind="option1.title" ng-model="question.value[$index]" name="checkbox_name[]">
                     {{option1.title}}
                   </div>
-
                 </label> -->
 
                 <label class="checkbox" for="{{option1.id}}">
                   <div class="checkbox-group required">
-                    <input type="checkbox" value="{{option1.id}}" id="{{option1.id}}" ng-click="updateQuestionValue(option1,question)" ng-bind="option1.title" ng-model="option1.checked"  ng-required="question.values.length==0" name="{{option1.id}}">
-                    {{option1.title}}
+                    <input type="checkbox" value="{{option1.id}}" id="{{option1.id}}" ng-click="updateQuestionValue(option1,question)" ng-bind="option1.title" ng-model="option1.checked" ng-required="question.values.length==0" name="{{option1.id}}"> {{option1.title}}
                   </div>
-
                 </label>
-
               </div>
+
               <p ng-show="question.values.length==0 && question.touch == true" class="red">Please select from the above options!</p>
+
             </div>
           </div>
 
@@ -68,12 +67,10 @@
             <div class="col-sm-9">
               <div class="radio" ng-repeat="option1 in question.option">
 
-                <label class="checkbox" for="{{option1.id}}">
-                  <div class="checkbox-group required">
-                    <input type="radio" value="{{option1.id}}" id="{{option1.id}}" ng-click="updateQuestionValue(option1,question)" ng-bind="option1.title" ng-model="option1.checked"  ng-required="question.values.length==0" name="{{question.id}}">
-                    {{option1.title}}
+                <label class="radio" for="{{option1.id}}">
+                  <div class="radio-group required">
+                    <input type="radio" value="{{option1.id}}" id="{{option1.id}}" ng-click="updateQuestionValue(option1,question)" ng-bind="option1.title" ng-model="option1.checked" ng-required="question.values.length==0" name="{{question.id}}"> {{option1.title}}
                   </div>
-
                 </label>
 
                 <!-- <label>
@@ -81,7 +78,7 @@
                   {{option1.title}}
                 </label> -->
               </div>
-              <!-- <p ng-show="survey.question{{$index}}.$error.required && survey.question{{$index}}.$touched" class="red">Please select from the above options!</p> -->
+              <p ng-show="question.values.length==0 && question.touch == true" class="red">Please select from the above options!</p>
             </div>
           </div>
 
@@ -93,6 +90,5 @@
         </div>
       </div>
     </form>
-
   </div>
 </div>
