@@ -28,4 +28,7 @@ $mobile: 768px;
 		left: 88%;
 		@include transform(translate(-15%,-88%));
 	}
+  .min-container {
+    padding: 0 10px;
+  }
 }

@@ -6,12 +6,18 @@
 @import "../bower_components/angular-loading-bar/build/loading-bar.min.css";
 
 @font-face {
-  font-family: "Walkway Rounded";
-  src: url(../fonts/Walkway_rounded.ttf);
+  font-family: "Nunito";
+  src: url('../fonts/Nunito-Regular.ttf');
 }
 @font-face {
-  font-family: "AG";
-  src: url(../fonts/AkzidenzGrotesk-Extended_2.ttf);
+  font-family: "Nunito";
+  src: url('../fonts/Nunito-Bold.ttf');
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url('../fonts/Nunito-Light.ttf');
+  font-weight: 300;
 }
 
 $gray-base: #000 !default;
@@ -40,8 +46,8 @@ $link-color: $gray-base !default;
 $link-hover-color: $gray-base !default;
 $link-hover-decoration: none !default;
 
-$font-head-char: "AG", Helvetica, Arial, sans-serif !default;
-$font-head: "Walkway Rounded", Helvetica, Arial, sans-serif !default;
+$font-head-char: "Nunito", Helvetica, Arial, sans-serif !default;
+$font-head: "Nunito", Helvetica, Arial, sans-serif !default;
 
 $head-color: #684703;
 $border-radius-base: 0px !default;
@@ -62,6 +68,10 @@ $menu-height: 74px !default;
       @content;
     }
   }
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: $font-head;
 }
 .primary {
     color: $brand-primary;
@@ -120,7 +130,6 @@ $menu-height: 74px !default;
             font-family: $font-head;
             color: #fff;
             font-size: 50px;
-            letter-spacing: 3px;
             span {
                 display: block;
             }
@@ -128,10 +137,10 @@ $menu-height: 74px !default;
     }
 }
 .logo-holder {
-  padding: 15px;
+  padding: 15px 0;
   img {
     float: right;
-    height: 40px;
+    height: 55px;
     width: auto;
   }
 }
@@ -151,9 +160,8 @@ $menu-height: 74px !default;
     p {
         color: $head-color;
         font-family: $font-head;
-        font-size: 35px;
+        font-size: 28px;
         line-height: 40px;
-        letter-spacing: 2px;
         //        span {
         //            font-family: $font-head-char;
         //        }
@@ -314,8 +322,8 @@ $menu-height: 74px !default;
   padding-left: 15px;
   padding-right: 15px;
 }
-.img-center {
-  text-align: center;
+.img-left {
+  text-align: left;
   img {
     float: none;
   }
@@ -325,7 +333,6 @@ $menu-height: 74px !default;
   font-size: 25px;
   padding: 15px;
   text-transform: uppercase;
-  letter-spacing: 3px;
   position: relative;
   margin-bottom: 100px;
 
@@ -390,4 +397,9 @@ $menu-height: 74px !default;
     width: 100%;
   }
 }
+.min-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 @import 'mobile';
