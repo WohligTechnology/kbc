@@ -115,18 +115,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     // if (value2.length === 0) {
 
-      NavigationService.saveSurvey(stateParam, surveyId, values, function(data) {
-        console.log(data);
-        NavigationService.pingHq(stateParam, populateQuestion);
-      });
-      
+    NavigationService.saveSurvey(stateParam, surveyId, values, function(data) {
+      console.log(data);
+      NavigationService.pingHq(stateParam, populateQuestion);
+    });
+
     // }
 
   };
   $scope.anss = [];
+  $scope.anss2 = "";
   $scope.nextQ = function() {
+    console.log(stateParam);
+    _.each($scope.anss,function(n,key){
+      console.log(n);
+      if (key===0) {
+        $scope.anss2 = n;
+      }else {
+        $scope.anss2 += "," + n;
+      }
 
-    NavigationService.saveAnswer(stateParam, $scope.playing.question, play.id, $scope.playing.test, function(data) {
+    });
+    NavigationService.saveAnswer(stateParam, $scope.playing.question, $scope.anss2, $scope.playing.test, function(data) {
       // if (data != "true") {
       //   $scope.questionIndex = 0;
       // }
@@ -136,7 +146,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       // } else {
       //   $state.go('intro');
       // }
-
+      $scope.anss = [];
+      $scope.anss2 = "";
       NavigationService.pingHq(stateParam, populateQuestion);
     });
   };
@@ -151,17 +162,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         return n != play.id;
       });
     } else {
-      $scope.anss.push(play.id);
+      if (parseInt($scope.playing.optionselect) > $scope.anss.length) {
+        $scope.anss.push(play.id);
+        if (play.active === false || !play.active) {
+          play.active = true;
+        } else {
+          play.active = false;
+        }
+      }
     }
-    console.log($scope.anss);
-
-    if (play.active === false || !play.active) {
-      play.active = true;
-
-    } else {
-      play.active = false;
-    }
-
     // cfpLoadingBar.start();
 
 
