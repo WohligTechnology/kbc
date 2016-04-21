@@ -31,7 +31,7 @@ $background-color: #ffd61e !default;
 $peach-bg: #fff2e1 !default;
 
 $brand-primary: #0784c8 !default;
-$brand-success: #84ce3c !default;
+$brand-success: #00ac93 !default;
 $brand-warning: #ffd61e !default;
 $brand-danger: #684703 !default;
 $brand-info: #000072 !default;
@@ -401,5 +401,7 @@ body {
   max-width: 900px;
   margin: 0 auto;
 }
-
+.no-border {
+  border: 0px !important;
+}
 @import 'mobile';
