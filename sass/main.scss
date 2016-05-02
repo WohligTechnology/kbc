@@ -347,7 +347,7 @@ img.doneLoading {
 .img-left {
   text-align: left;
   img {
-    float: none;
+    float: none !important;
   }
 }
 .thought-box {
