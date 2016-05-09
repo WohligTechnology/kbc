@@ -4,7 +4,6 @@
 @import "../bower_components/flexslider/flexslider.css";
 @import "../bower_components/font-awesome/css/font-awesome.min.css";
 @import "../bower_components/angular-loading-bar/build/loading-bar.min.css";
-
 @font-face {
   font-family: "Nunito";
   src: url('../fonts/Nunito-Regular.ttf');
@@ -19,17 +18,14 @@
   src: url('../fonts/Nunito-Light.ttf');
   font-weight: 300;
 }
-
 $gray-base: #000 !default;
 $gray-darker: lighten($gray-base, 13.5%) !default; // #222
 $gray-dark: lighten($gray-base, 20%) !default; // #333
 $gray: lighten($gray-base, 33.5%) !default; // #555
 $gray-light: lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter: lighten($gray-base, 93.5%) !default; // #eee
-
 $background-color: #ffd61e !default;
 $peach-bg: #fff2e1 !default;
-
 $brand-primary: #0784c8 !default;
 $brand-success: #00ac93 !default;
 $brand-warning: #ffd61e !default;
@@ -38,28 +34,24 @@ $brand-info: #000072 !default;
 $red: #f55069 !default;
 $green: #00ac93 !default;
 $yellow: #eeec3b !default;
-
 $body-bg: #fff !default;
-
 $text-color: $gray-base !default;
 $link-color: $gray-base !default;
 $link-hover-color: $gray-base !default;
 $link-hover-decoration: none !default;
-
 $font-head-char: "Nunito", Helvetica, Arial, sans-serif !default;
 $font-head: "Nunito", Helvetica, Arial, sans-serif !default;
-
 $head-color: #684703;
-$border-radius-base: 0px !default;
-$border-radius-large: 0px !default;
-$border-radius-small: 0px !default;
+$border-radius-base: 0 !default;
+$border-radius-large: 0 !default;
+$border-radius-small: 0 !default;
 $menu-height: 74px !default;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @mixin clip-path($clip) {
-    -webkit-clip-path: $clip;
-    -moz-clip-path: $clip;
-    -ms-clip-path: $clip;
-    clip-path: $clip;
+  -webkit-clip-path: $clip;
+  -moz-clip-path: $clip;
+  -ms-clip-path: $clip;
+  clip-path: $clip;
 }
 @mixin placeholder {
   $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
@@ -87,16 +79,16 @@ img.doneLoading {
   opacity: 1;
 }
 .primary {
-    color: $brand-primary;
+  color: $brand-primary;
 }
 .danger {
-    color: $brand-danger;
+  color: $brand-danger;
 }
 .warning {
-    color: $brand-warning;
+  color: $brand-warning;
 }
 .success {
-    color: $brand-success;
+  color: $brand-success;
 }
 .bg-warning {
   background-color: $brand-warning;
@@ -116,7 +108,7 @@ img.doneLoading {
 .bg-blue {
   background-color: $brand-primary;
   .btn-yellow {
-    @include button-variant($brand-primary, $background-color, $background-color);;
+    @include button-variant($brand-primary, $background-color, $background-color);
   }
 }
 .bg-green {
@@ -126,28 +118,28 @@ img.doneLoading {
   }
 }
 .btn-round {
-    font-size: 18px;
-    padding: 6px 15px;
-    min-width: 120px;
-    border-radius: 5px;
+  font-size: 18px;
+  padding: 6px 15px;
+  min-width: 120px;
+  border-radius: 5px;
 }
 .intro {
-    position: relative;
-    background-color: $red;
-    .intro-holder {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        @include transform(translate(-50%, -50%));
-        figcaption {
-            font-family: $font-head;
-            color: #fff;
-            font-size: 50px;
-            span {
-                display: block;
-            }
-        }
+  position: relative;
+  background-color: $red;
+  .intro-holder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+    figcaption {
+      font-family: $font-head;
+      color: #fff;
+      font-size: 50px;
+      span {
+        display: block;
+      }
     }
+  }
 }
 .logo-holder {
   padding: 15px 0;
@@ -164,57 +156,57 @@ img.doneLoading {
   padding-top: 0;
 }
 .bg {
-    padding: 10px 0;
-    position: relative;
-    // background-color: $background-color;
+  padding: 10px 0;
+  position: relative;
+  // background-color: $background-color;
 }
 .wish-head {
-    min-height: 40px;
-    p {
-        color: $head-color;
-        font-family: $font-head;
-        font-size: 28px;
-        line-height: 40px;
-        //        span {
-        //            font-family: $font-head-char;
-        //        }
-    }
+  min-height: 40px;
+  p {
+    color: $head-color;
+    font-family: $font-head;
+    font-size: 28px;
+    line-height: 40px;
+    //        span {
+    //            font-family: $font-head-char;
+    //        }
+  }
 }
 .img-holder {
-    min-height: 150px;
-    padding: 10px 0 0;
-	  position: relative;
-    img.loading {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      @include transform(translate(-50%,-50%));
-    }
-    img {
-      margin: 0 auto;
-    }
-	.check {
-		color: $head-color;
-		font-size: 20px;
-		position: absolute;
-		top: 15%;
-		left: 93%;
-		@include transform(translate(-15%,-93%));
-	}
+  min-height: 150px;
+  padding: 10px 0 0;
+  position: relative;
+  img.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%,-50%));
+  }
+  img {
+    margin: 0 auto;
+  }
+  .check {
+    color: $head-color;
+    font-size: 20px;
+    position: absolute;
+    top: 15%;
+    left: 93%;
+    @include transform(translate(-15%,-93%));
+  }
 }
 .wish-name {
-    p {
-        padding: 10px;
-        border-radius: 10px;
-        background-color: $peach-bg;
-    }
+  p {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: $peach-bg;
+  }
 }
 .wish-holder {
-    @extend.img-holder;
-    &.question {
-      min-height: auto;
-      margin: 0;
-    }
+  @extend.img-holder;
+  &.question {
+    min-height: auto;
+    margin: 0;
+  }
 }
 .btn {
   @include transition(all 300ms ease);
@@ -222,7 +214,6 @@ img.doneLoading {
 .btn-yellow {
   @include button-variant(white, $background-color, $background-color);
 }
-
 //jagruti css
 .loadingcfp {
   position: fixed;
@@ -246,7 +237,7 @@ img.doneLoading {
   text-align: center;
   position: fixed;
   background-color: white;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.35);
   border-radius: 3px;
   top: 50%;
   left: 50%;
@@ -256,7 +247,6 @@ img.doneLoading {
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-
 .relative {
   position: relative;
   .absolute {
@@ -272,7 +262,6 @@ img.doneLoading {
     right: 15px;
   }
 }
-
 .hq-form {
   border-radius: 5px;
   padding: 30px;
@@ -280,17 +269,15 @@ img.doneLoading {
   margin: 10px 130px 0;
   color: #383939;
   min-height: 300px;
-
-  h4, .h4 {
+  h4,
+  .h4 {
     font-size: 14px;
     text-align: right;
     font-weight: bold;
   }
-
   .bot-marg {
     margin-bottom: 20px;
   }
-
   .radio input[type="radio"],
   .radio-inline input[type="radio"],
   .checkbox input[type="checkbox"],
@@ -301,24 +288,20 @@ img.doneLoading {
     width: 12px;
     border-radius: 2px;
     outline: none !important;
-
     &:checked {
       background-color: $head-color;
       outline: none !important;
     }
   }
-
   .radio input[type="radio"] {
-      border-radius: 100%;
-    }
-
+    border-radius: 100%;
+  }
   .btn {
     border: none;
     border-radius: 4px;
     color: $peach-bg;
     @include transition(all ease 300ms);
   }
-
   .form-control {
     border: none;
     box-shadow: none;
@@ -327,13 +310,11 @@ img.doneLoading {
     color: $head-color;
     outline: none !important;
     border-radius: 2px;
-
     @include placeholder {
       color: $head-color;
     }
   }
 }
-
 .pointer {
   cursor: pointer;
 }
@@ -357,7 +338,6 @@ img.doneLoading {
   text-transform: uppercase;
   position: relative;
   margin-bottom: 100px;
-
   &:after {
     content: '';
     width: 0;
@@ -378,17 +358,16 @@ img.doneLoading {
   padding: 30px 0 10px;
 }
 .row-five {
-    text-align: center;
-    .inlined {
-        width: 33.33%;
-        display: inline-block;
-        padding: 0px 20px;
-
-        img {
-          max-width: 220px;
-          margin: 0 auto;
-        }
+  text-align: center;
+  .inlined {
+    width: 33.33%;
+    display: inline-block;
+    padding: 0 20px;
+    img {
+      max-width: 220px;
+      margin: 0 auto;
     }
+  }
 }
 @media (max-width: $screen-sm-max) {
   .relative {
@@ -403,16 +382,16 @@ img.doneLoading {
 @media (max-width: $screen-xs-max) {
   .relative {
     .absolute {
-      width: 0px;
+      width: 0;
     }
     .hq-form {
-      margin: 10px 0px 0;
-      h4, .h4 {
+      margin: 10px 0 0;
+      h4,
+      .h4 {
         text-align: left;
       }
     }
   }
-
   .row-five .inlined {
     display: block;
     text-align: center;
@@ -424,6 +403,13 @@ img.doneLoading {
   margin: 0 auto;
 }
 .no-border {
-  border: 0px !important;
+  border: 0 !important;
+}
+p.textup {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  padding: 0 14px;
+  font-weight: 500;
 }
 @import 'mobile';
