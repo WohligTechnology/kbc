@@ -16,7 +16,10 @@ $mobile: 768px;
 }
 
 @media screen and (max-width: 550px){
-
+  .xyz-pillarx {
+      height: 130px;
+      margin-top: 0;
+  }
 }
 @media screen and (max-width: 768px){
     .intro .intro-holder figcaption { font-size: 30px; }
