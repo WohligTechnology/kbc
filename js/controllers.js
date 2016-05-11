@@ -152,6 +152,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.anss2 = "";
         NavigationService.pingHq(stateParam, populateQuestion);
       });
+    }else {
+      console.log("Error Text Goes Here...");
     }
 
   };
