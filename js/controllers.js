@@ -126,6 +126,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.anss = [];
   $scope.anss2 = "";
   $scope.nextQ = function() {
+
     console.log($scope.anss.length);
     console.log($scope.playing.optionselect);
     if ($scope.anss.length === parseInt($scope.playing.optionselect)) {
@@ -161,22 +162,31 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
   $scope.selectOption = function(play) {
     $(window).scrollTop(0);
-
+    console.log(play.id);
     var ispresent = _.findWhere($scope.anss, play.id);
+    console.log(ispresent);
     if (ispresent) {
+      console.log("in if");
+      play.active = !play.active;
+
       $scope.anss = _.filter($scope.anss, function(n) {
         return n != play.id;
       });
     } else {
+      console.log("in else");
+
       if (parseInt($scope.playing.optionselect) > $scope.anss.length) {
         $scope.anss.push(play.id);
-        if (play.active === false || !play.active) {
-          play.active = true;
-        } else {
-          play.active = false;
-        }
+        play.active = !play.active;
+
+        // if (play.active === false || !play.active) {
+        //   // play.active = true;
+        // } else {
+        //   // play.active = false;
+        // }
       }
     }
+    console.log($scope.anss);
     // cfpLoadingBar.start();
 
 
