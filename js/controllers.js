@@ -126,30 +126,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.anss = [];
   $scope.anss2 = "";
   $scope.nextQ = function() {
-    console.log(stateParam);
-    _.each($scope.anss,function(n,key){
-      console.log(n);
-      if (key===0) {
-        $scope.anss2 = n;
-      }else {
-        $scope.anss2 += "," + n;
-      }
+    console.log($scope.anss.length);
+    console.log($scope.playing.optionselect);
+    if ($scope.anss.length === parseInt($scope.playing.optionselect)) {
+      _.each($scope.anss,function(n,key){
+        console.log(n);
+        if (key===0) {
+          $scope.anss2 = n;
+        }else {
+          $scope.anss2 += "," + n;
+        }
 
-    });
-    NavigationService.saveAnswer(stateParam, $scope.playing.question, $scope.anss2, $scope.playing.test, function(data) {
-      // if (data != "true") {
-      //   $scope.questionIndex = 0;
-      // }
-      // if ($scope.questionIndex < $scope.allQuestions.length - 1) {
-      //   $scope.questionIndex++;
-      //   $scope.playing = $scope.allQuestions[$scope.questionIndex];
-      // } else {
-      //   $state.go('intro');
-      // }
-      $scope.anss = [];
-      $scope.anss2 = "";
-      NavigationService.pingHq(stateParam, populateQuestion);
-    });
+      });
+      NavigationService.saveAnswer(stateParam, $scope.playing.question, $scope.anss2, $scope.playing.test, function(data) {
+        // if (data != "true") {
+        //   $scope.questionIndex = 0;
+        // }
+        // if ($scope.questionIndex < $scope.allQuestions.length - 1) {
+        //   $scope.questionIndex++;
+        //   $scope.playing = $scope.allQuestions[$scope.questionIndex];
+        // } else {
+        //   $state.go('intro');
+        // }
+        $scope.anss = [];
+        $scope.anss2 = "";
+        NavigationService.pingHq(stateParam, populateQuestion);
+      });
+    }
+
   };
 
 
