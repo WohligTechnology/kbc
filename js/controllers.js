@@ -16,7 +16,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.bgColor = "bg-warning";
   $scope.navigation = NavigationService.getnav();
   console.log($stateParams.id);
-  var stateParam = "MTUmaHE=";
+  var stateParam = "NyZocQ==";
 
   var other = $.jStorage.get("userid");
 
