@@ -126,7 +126,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.anss = [];
   $scope.anss2 = "";
   $scope.nextQ = function() {
-
+    console.log("In NExt");
+    $(window).scrollTop(0);
     console.log($scope.anss.length);
     console.log($scope.playing.optionselect);
     if ($scope.anss.length === parseInt($scope.playing.optionselect)) {
@@ -255,6 +256,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('headerctrl', function($scope, TemplateService, NavigationService) {
   $scope.template = TemplateService;
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+    console.log("In header");
     $(window).scrollTop(0);
   });
 
