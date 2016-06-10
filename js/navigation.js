@@ -80,6 +80,16 @@ var navigationservice = angular.module('navigationservice', [])
         url: adminurl + "sendlogo",
         method: "POST"
       }).success(callback);
+    },
+    checkKey: function(key,callback) {
+      var obj = {
+        key: key
+      };
+      $http({
+        url: adminurl + "checkKey",
+        method: "POST",
+        data: obj
+      }).success(callback);
     }
 
   };

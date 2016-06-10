@@ -51,6 +51,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
     templateUrl: "views/template.html",
     controller: 'WelcomeCtrl'
   })
+  .state('keyLogin', {
+    url: "/keyLogin",
+    templateUrl: "views/template.html",
+    controller: 'keyLoginCtrl'
+  })
 
   .state('thankyou', {
     url: "/thankyou",

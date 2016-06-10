@@ -1,0 +1,14 @@
+<div class="intro-holder">
+  <form ng-submit="enterKey()">
+  <div class="form-group">
+    <label >Enter Your Valid Key<span></span></label>
+    <div>
+      <input type="text" class="form-control" name="key" ng-model="key.key">
+    </div>
+  </div>
+  <div>
+    <button  class="btn btn-primary" type="submit" ng-disabled="survey.$invalid">Submit</button>
+  </div>
+</form>
+</div>
+<div class="clearfix"></div>
