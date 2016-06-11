@@ -420,4 +420,15 @@ p.textup {
     float: right;
   }
 }
+
+// login
+.login {
+  input {
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+  }
+}
+// login end
+
 @import 'mobile';
