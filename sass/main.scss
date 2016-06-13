@@ -338,6 +338,8 @@ img.doneLoading {
   text-transform: uppercase;
   position: relative;
   margin-bottom: 100px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
   &:after {
     content: '';
     width: 0;
@@ -423,10 +425,38 @@ p.textup {
 
 // login
 .login {
+  position: relative;
   input {
     padding: 6px 12px;
     border-radius: 4px;
-    border: 1px solid transparent;
+    border: white;
+    min-height: 39px;
+    display: block;
+    width: 100%;
+    margin: 0 auto 10px;
+    max-width: 320px;
+  }
+  .err-msg {
+    position: absolute;
+    top: -34px;
+    left: 50%;
+    @include transform(translateX(-50%));
+    width: auto;
+    background: #fff2e1;
+    border-radius: 3px;
+    padding: 5px 10px;
+    &:after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top:5px solid #fff2e1;
+      bottom: -5px;
+      position: absolute;
+      left: 50%;
+      @include transform(translateX(-50%));
+    }
   }
 }
 // login end

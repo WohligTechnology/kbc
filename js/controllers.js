@@ -272,7 +272,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log($scope.key.key);
             if ($scope.key.key === undefined || $scope.key.key === '') {
               $scope.msg='';
-                $scope.msg = "Key is Mandatory!";
+                $scope.msg = "Enter a key to proceed!";
             }
             else {
                 NavigationService.checkKey($scope.key.key, function(data) {
@@ -284,7 +284,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     } else {
                         console.log("wrong");
                         $scope.msg='';
-                          $scope.msg = "Key is Wrong!";
+                          $scope.msg = "Please enter valid key!";
                     }
 
                 });

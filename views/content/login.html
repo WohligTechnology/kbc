@@ -1,11 +1,19 @@
-<div class="intro-holder">
+
+
+<div class="thought-box bg-light-warning text-center">
+  Please enter the key shared with you on email
+</div>
+<div class="img-content">
+  <img src="img/login.png" class="img-responsive responsive-center" />
+</div>
+
+<div class="text-center padding-vertical">
   <form ng-submit="enterKey()">
   <div class="form-group login">
-    <label for="login">Enter Your Valid Key<span></span></label>
       <input type="text" class="input-login" name="key" ng-model="key.key" id="login">
-    <span>{{msg}}</span>
-      <button  class="btn btn-primary" type="submit" ng-disabled="survey.$invalid">Submit</button>
+    <div class="err-msg" ng-if="msg">{{msg}}</div>
+      <button class="btn btn-yellow btn-round" type="submit" ng-disabled="survey.$invalid">Submit</button>
   </div>
 </form>
+
 </div>
-<div class="clearfix"></div>
