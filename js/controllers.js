@@ -18,6 +18,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     console.log($stateParams.id);
 
     var stateParam = "NyZocQ==";
+    $.jStorage.set("userid",$stateParams.id);
     if($.jStorage.get("userid")===null){
       $state.go('keyLogin');
     }
@@ -260,7 +261,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
 
     .controller('keyLoginCtrl', function($scope, TemplateService, NavigationService, $state) {
-        $scope.template = TemplateService.changecontent("Login");
+        $scope.template = TemplateService.changecontent("login");
         $scope.menutitle = NavigationService.makeactive("Login");
         TemplateService.title = $scope.menutitle;
         TemplateService.header = "";
