@@ -57,13 +57,14 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
     controller: 'keyLoginCtrl'
   })
 
+
   .state('thankyou', {
     url: "/thankyou",
     templateUrl: "views/template.html",
     controller: 'ThankYouCtrl'
   });
 
-  $urlRouterProvider.otherwise("/playing");
+  $urlRouterProvider.otherwise("/welcome");
 
 });
 

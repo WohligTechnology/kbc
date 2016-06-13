@@ -258,6 +258,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
         $scope.bgColor = "bg-red";
     })
+
     .controller('keyLoginCtrl', function($scope, TemplateService, NavigationService, $state) {
         $scope.template = TemplateService.changecontent("Login");
         $scope.menutitle = NavigationService.makeactive("Login");
