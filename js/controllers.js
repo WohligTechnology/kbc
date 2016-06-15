@@ -167,7 +167,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
       $scope.selectOption = function(play) {
-          $(window).scrollTop(0);
+          // $(window).scrollTop(0);
           console.log(play.id);
           var ispresent = _.findWhere($scope.anss, play.id);
           console.log(ispresent);
