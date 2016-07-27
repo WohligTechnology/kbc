@@ -6,3 +6,5 @@ w/
 production/
 *.zip
 css/
+plugins/
+platforms/
