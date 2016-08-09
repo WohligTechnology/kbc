@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.wohlig.happynessquotient" version="1.0.0" versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.happynessquotient.app" version="0.0.1" versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
   <name>HQ</name>
-  <description>Happyness Quotient</description>
+  <description>Measure happiness. Analyse what drives employees. Powered by Never Grow Up.</description>
   <author email="info@willnevergrowup.com" href="http://www.willnevergrowup.com">Never Grow Up</author>
   <content src="index.html"/>
   <access origin="*"/>

@@ -52,7 +52,7 @@ gulp.task('build', function() {
     .pipe(gulp.dest('apk'));
 });
 // ~/Library/Android/sdk/build-tools/23.0.1/zipalign -v 4 platforms/android/build/outputs/apk/android-release.apk app-publish.apk
-// ~/Library/Android/sdk/build-tools/23.0.1/zipalign -v 4 apk/android-release.apk app-publish.apk
+// ~/Library/Android/sdk/build-tools/23.0.1/zipalign -v 4 apk/android-release.apk apk-publish.apk
 
 gulp.task('git-check', function(done) {
   if (!sh.which('git')) {

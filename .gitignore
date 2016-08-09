@@ -9,3 +9,5 @@ css/
 platforms/
 plugins/
 www/
+apk/
+*.apk
