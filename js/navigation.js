@@ -1,7 +1,14 @@
-// var path = "http://192.168.0.120/newhq/";
-var path = "http://wohlig.co.in/newhq/";
+// var path = "http://192.168.1.102/newhq/";
+var mainpath = "http://wohlig.co.in/master/";
+var path = "";
+if (!$.jStorage.get('serverpart')) {
+  path = "http://wohlig.co.in/master/";
+}else {
+  path = "http://wohlig.co.in/master/"+ $.jStorage.get('serverpart') + "/";
+}
 var adminurl = path + "index.php/json/";
 var imageurl = path + "uploads/";
+
 
 var navigationservice = angular.module('navigationservice', [])
 

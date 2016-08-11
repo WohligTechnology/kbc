@@ -1,4 +1,6 @@
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'cfp.loadingBar'])
+var globalfunction = {};
+
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'cfp.loadingBar', 'base64'])
 
 .controller('IntroCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -9,7 +11,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.bgColor = "intro";
 })
 
-.controller('PlayingCtrl', function($scope, TemplateService, NavigationService, $stateParams, cfpLoadingBar, $state) {
+.controller('PlayingCtrl', function($scope, TemplateService, NavigationService, $stateParams, cfpLoadingBar, $state, $base64) {
     $scope.template = TemplateService.changecontent("playing");
     $scope.menutitle = NavigationService.makeactive("Question");
     TemplateService.title = $scope.menutitle;
@@ -17,6 +19,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     console.log($stateParams.id);
 
+    $scope.keydecoded = $base64.decode($stateParams.id);
+    $scope.splited = $scope.keydecoded.split('&');
+    console.log($scope.splited);
+    $.jStorage.set('serverpart',$scope.splited[2])
+
+    globalfunction.changePath();
     var stateParam = "NyZocQ==";
     $.jStorage.set("userid",$stateParams.id);
     if($.jStorage.get("userid")===null){
@@ -260,7 +268,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.bgColor = "bg-red";
     })
 
-    .controller('keyLoginCtrl', function($scope, TemplateService, NavigationService, $state) {
+    .controller('keyLoginCtrl', function($scope, TemplateService, NavigationService, $state, $base64) {
         $scope.template = TemplateService.changecontent("login");
         $scope.menutitle = NavigationService.makeactive("Login");
         TemplateService.title = $scope.menutitle;
@@ -277,6 +285,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.msg = "Enter a key to proceed!";
             }
             else {
+              $scope.keydecoded = $base64.decode($scope.key.key);
+              $scope.splited = $scope.keydecoded.split('&');
+              console.log($scope.splited);
+              $.jStorage.set('serverpart',$scope.splited[2])
+
+              globalfunction.changePath();
                 NavigationService.checkKey($scope.key.key, function(data) {
                     console.log(data);
                     if (data.value === true) {
@@ -305,6 +319,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     function getLogo(data) {
         $scope.logo = data;
     }
-    NavigationService.sendlogo(getLogo);
+
+    globalfunction.changePath = function(){
+      path = mainpath + $.jStorage.get('serverpart') + "/";
+      adminurl = path + "index.php/json/";
+      imageurl = path + "uploads/";
+      console.log(path);
+    }
+
+    // NavigationService.sendlogo(getLogo);
 
 });

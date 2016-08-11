@@ -12,6 +12,7 @@ var jsArray = [
     './bower_components/angular-flexslider/angular-flexslider.js',
     './bower_components/jStorage/jstorage.js',
     './bower_components/lodash/lodash.js',
+    './bower_components/angular-base64/angular-base64.min.js',
 
     './js/app.js',
     './js/controllers.js',
