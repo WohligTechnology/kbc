@@ -65,7 +65,7 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: $font-head;
   &.platform-ios {
-    border-top: 20px solid $brand-success;
+    border-top: 20px solid $gray-darker;
   }
 }
 img.loading {
