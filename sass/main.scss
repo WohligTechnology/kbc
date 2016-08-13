@@ -64,6 +64,9 @@ $menu-height: 74px !default;
 body {
   -webkit-font-smoothing: antialiased;
   font-family: $font-head;
+  &.platform-ios {
+    border-top: 20px solid $brand-success;
+  }
 }
 img.loading {
   text-align: center;
