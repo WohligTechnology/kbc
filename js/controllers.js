@@ -19,10 +19,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     console.log($stateParams.id);
 
-    $scope.keydecoded = $base64.decode($stateParams.id);
-    $scope.splited = $scope.keydecoded.split('&');
-    console.log($scope.splited);
-    $.jStorage.set('serverpart',$scope.splited[2])
+if ($stateParams.id) {
+  $scope.keydecoded = $base64.decode($stateParams.id);
+  $scope.splited = $scope.keydecoded.split('&');
+  console.log($scope.splited);
+  $.jStorage.set('serverpart',$scope.splited[2]);
+}
+
 
     globalfunction.changePath();
     var stateParam = "NyZocQ==";
