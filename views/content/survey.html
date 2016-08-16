@@ -18,7 +18,7 @@
           <div class="col-sm-5">
             <select class="form-control" ng-required="question.isrequired=='1'" name="question{{$index}}" ng-model="question.value">
               <option value="" selected>Please select</option>
-              <option ng-repeat="option1 in question.option" value="{{option1.title}}" ng-bind="option1.title"></option>
+              <option ng-repeat="option1 in question.option" value="{{option1.id}}" ng-bind="option1.title"></option>
             </select>
             <p ng-show="survey.question{{$index}}.$error.required && survey.question{{$index}}.$touched" class="red">Please select from the above options!</p>
           </div>
@@ -48,7 +48,7 @@
 
                 <label class="checkbox" for="{{option1.id}}">
                   <div class="checkbox-group required">
-                    <input type="checkbox" value="{{option1.id}}" id="{{option1.id}}" ng-click="updateQuestionValue(option1,question)" ng-bind="option1.title" ng-model="option1.checked" ng-required="question.values.length==0" name="{{option1.id}}"> {{option1.title}}
+                    <input type="checkbox" value="{{option1.id}}" id="{{option1.id}}" ng-click="updateQuestionValue(option1,question,2)" ng-bind="option1.title" ng-model="option1.checked" ng-required="question.values.length==0" name="{{option1.id}}"> {{option1.title}}
                   </div>
                 </label>
               </div>
@@ -69,7 +69,7 @@
 
                 <label class="radio" for="{{option1.id}}">
                   <div class="radio-group required">
-                    <input type="radio" value="{{option1.id}}" id="{{option1.id}}" ng-click="updateQuestionValue(option1,question)" ng-bind="option1.title" ng-model="option1.checked" ng-required="question.values.length==0" name="{{question.id}}"> {{option1.title}}
+                    <input type="radio" value="{{option1.id}}" id="{{option1.id}}" ng-click="updateQuestionValue(option1,question,1)" ng-bind="option1.title" ng-model="option1.checked" ng-required="question.values.length==0" name="{{question.id}}"> {{option1.title}}
                   </div>
                 </label>
 

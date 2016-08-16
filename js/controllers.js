@@ -89,15 +89,20 @@ if ($stateParams.id) {
       NavigationService.pingHq(stateParam, populateQuestion);
 
       // for checkbox and radio button validation
-      $scope.updateQuestionValue = function(choice, question) {
+      $scope.updateQuestionValue = function(choice, question, num) {
           question.touch = true;
           question.values = question.values || [];
+          if (num === 1) {
+            question.values = choice.id;
+          }else{
           if (choice.checked) {
               question.values.push(choice.id);
               question.values = _.uniq(question.values);
           } else {
               question.values = _.without(question.values, choice.id);
           }
+        }
+        console.log(question.values);
       };
 
       $scope.submitSurvey = function(surveyId, form) {
@@ -106,20 +111,33 @@ if ($stateParams.id) {
 
           var values = _.map(form2, function(n) {
               var obj = {};
-              if (n.type == "3") {
-                  var texts = [];
-                  _.each(n.option, function(m, key) {
-                      if (n.value[key]) {
-                          texts.push(m.title);
-                      }
-                  });
-                  obj.answer = texts.join(',');
-                  obj.questionid = n.id;
-              } else {
-                  obj.answer = n.value;
-                  obj.questionid = n.id;
-              }
 
+              switch (n.type) {
+                case "3":
+                var texts = "";
+                console.log("in checkbox option");
+                console.log(n);
+                _.each(n.values, function(m, key) {
+                        if (key === 0) {
+                          texts = m;
+                        }else {
+                          texts = texts + "," + m;
+                        }
+                });
+                obj.answer = texts;
+                obj.questionid = n.id;
+
+                  break;
+                case "5":
+                obj.answer = n.values;
+                obj.questionid = n.id;
+                  break;
+                default:
+                obj.answer = n.value;
+                obj.questionid = n.id;
+                break;
+
+              }
               return obj;
           });
 
