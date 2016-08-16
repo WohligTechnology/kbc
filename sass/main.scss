@@ -259,10 +259,10 @@ img.doneLoading {
     height: auto;
   }
   .left {
-    left: 15px;
+    left: 0;
   }
   .right {
-    right: 15px;
+    right: 0;
   }
 }
 .hq-form {
@@ -461,6 +461,9 @@ p.textup {
       @include transform(translateX(-50%));
     }
   }
+}
+.remove-width {
+  max-width: none;
 }
 // login end
 

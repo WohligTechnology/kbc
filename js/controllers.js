@@ -238,6 +238,7 @@ if ($stateParams.id) {
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.bgColor = "bg-warning";
+    $scope.removeWidth = 'remove-width';
 })
 
 .controller('WelcomeCtrl', function($scope, TemplateService, NavigationService, $state, $stateParams) {
