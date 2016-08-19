@@ -93,13 +93,13 @@ if ($stateParams.id) {
           question.touch = true;
           question.values = question.values || [];
           if (num === 1) {
-            question.values = choice.id;
+            question.values = choice.title;
           }else{
           if (choice.checked) {
-              question.values.push(choice.id);
+              question.values.push(choice.title);
               question.values = _.uniq(question.values);
           } else {
-              question.values = _.without(question.values, choice.id);
+              question.values = _.without(question.values, choice.title);
           }
         }
         console.log(question.values);
