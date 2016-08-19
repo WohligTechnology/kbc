@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.happynessquotient.app" version="0.0.1" versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.happynessquotient.app" version="0.0.2" versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
   <name>HQ</name>
   <description>Measure happiness. Analyse what drives employees. Powered by Never Grow Up.</description>
   <author email="info@willnevergrowup.com" href="http://www.willnevergrowup.com">Never Grow Up</author>
