@@ -1,10 +1,10 @@
 // var path = "http://192.168.1.102/newhq/";
-var mainpath = "http://wohlig.co.in/master/";
+var mainpath = "http://104.197.47.126/master/";
 var path = "";
 if (!$.jStorage.get('serverpart')) {
-  path = "http://wohlig.co.in/master/";
+  path = "http://104.197.47.126/master/";
 }else {
-  path = "http://wohlig.co.in/master/"+ $.jStorage.get('serverpart') + "/";
+  path = "http://104.197.47.126/master/"+ $.jStorage.get('serverpart') + "/";
 }
 var adminurl = path + "index.php/json/";
 var imageurl = path + "uploads/";
