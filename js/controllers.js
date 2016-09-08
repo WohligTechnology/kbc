@@ -349,6 +349,6 @@ if ($stateParams.id) {
       console.log(path);
     }
 
-    // NavigationService.sendlogo(getLogo);
+    NavigationService.sendlogo(getLogo);
 
 });
