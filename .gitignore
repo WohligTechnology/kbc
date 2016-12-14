@@ -5,7 +5,6 @@ w/
 *.tar
 production/
 *.zip
-css/
 plugins/
 platforms/
 www/
