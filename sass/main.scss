@@ -222,7 +222,8 @@ img.doneLoading {
 
 .img-holder {
   min-height: 150px;
-  padding: 10px 0 0;
+  padding: 0;
+  margin-top: 10px;
   position: relative;
   img.loading {
     position: absolute;
