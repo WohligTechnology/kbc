@@ -1,4 +1,5 @@
 /*Start writing sass here*/
+
 @import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "../bower_components/flexslider/flexslider.css";
@@ -8,22 +9,30 @@
   font-family: "Nunito";
   src: url('../fonts/Nunito-Regular.ttf');
 }
+
 @font-face {
   font-family: "Nunito";
   src: url('../fonts/Nunito-Bold.ttf');
   font-weight: 700;
 }
+
 @font-face {
   font-family: "Nunito";
   src: url('../fonts/Nunito-Light.ttf');
   font-weight: 300;
 }
+
 $gray-base: #000 !default;
-$gray-darker: lighten($gray-base, 13.5%) !default; // #222
-$gray-dark: lighten($gray-base, 20%) !default; // #333
-$gray: lighten($gray-base, 33.5%) !default; // #555
-$gray-light: lighten($gray-base, 46.7%) !default; // #777
-$gray-lighter: lighten($gray-base, 93.5%) !default; // #eee
+$gray-darker: lighten($gray-base,
+13.5%) !default; // #222
+$gray-dark: lighten($gray-base,
+20%) !default; // #333
+$gray: lighten($gray-base,
+33.5%) !default; // #555
+$gray-light: lighten($gray-base,
+46.7%) !default; // #777
+$gray-lighter: lighten($gray-base,
+93.5%) !default; // #eee
 $background-color: #ffd61e !default;
 $peach-bg: #fff2e1 !default;
 $brand-primary: #0784c8 !default;
@@ -39,8 +48,14 @@ $text-color: $gray-base !default;
 $link-color: $gray-base !default;
 $link-hover-color: $gray-base !default;
 $link-hover-decoration: none !default;
-$font-head-char: "Nunito", Helvetica, Arial, sans-serif !default;
-$font-head: "Nunito", Helvetica, Arial, sans-serif !default;
+$font-head-char: "Nunito",
+Helvetica,
+Arial,
+sans-serif !default;
+$font-head: "Nunito",
+Helvetica,
+Arial,
+sans-serif !default;
 $head-color: #684703;
 $border-radius-base: 0 !default;
 $border-radius-large: 0 !default;
@@ -53,6 +68,7 @@ $menu-height: 74px !default;
   -ms-clip-path: $clip;
   clip-path: $clip;
 }
+
 @mixin placeholder {
   $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
   @each $placeholder in $placeholders {
@@ -61,6 +77,7 @@ $menu-height: 74px !default;
     }
   }
 }
+
 body {
   -webkit-font-smoothing: antialiased;
   font-family: $font-head;
@@ -68,64 +85,85 @@ body {
     border-top: 20px solid $gray-darker;
   }
 }
+
 img.loading {
   text-align: center;
   opacity: 1;
   width: 32px !important;
   height: auto !important;
 }
+
 img {
   opacity: 0;
   @include transition(all 300ms ease);
 }
+
 img.doneLoading {
   opacity: 1;
 }
+
 .primary {
   color: $brand-primary;
 }
+
 .danger {
   color: $brand-danger;
 }
+
 .warning {
   color: $brand-warning;
 }
+
 .success {
   color: $brand-success;
 }
+
 .bg-warning {
   background-color: $brand-warning;
 }
+
 .bg-light-warning {
   background-color: $peach-bg;
 }
+
 .red {
   color: $red;
 }
+
 .bg-red {
   background-color: $red;
   .btn-yellow {
-    @include button-variant($red, $background-color, $background-color);
+    @include button-variant($red,
+    $background-color,
+    $background-color);
   }
 }
+
 .bg-blue {
   background-color: $brand-primary;
   .btn-yellow {
-    @include button-variant($brand-primary, $background-color, $background-color);
+    @include button-variant($brand-primary,
+    $background-color,
+    $background-color);
   }
 }
+
 .bg-green {
   background-color: $green;
   .btn-yellow {
-    @include button-variant($green, $background-color, $background-color);
+    @include button-variant($green,
+    $background-color,
+    $background-color);
   }
 }
+
 .btn-round {
   font-size: 18px;
   padding: 6px 15px;
   min-width: 120px;
   border-radius: 5px;
 }
+
 .intro {
   position: relative;
   background-color: $red;
@@ -133,7 +171,8 @@ img.doneLoading {
     position: absolute;
     top: 50%;
     left: 50%;
-    @include transform(translate(-50%, -50%));
+    @include transform(translate(-50%,
+    -50%));
     figcaption {
       font-family: $font-head;
       color: #fff;
@@ -144,6 +183,7 @@ img.doneLoading {
     }
   }
 }
+
 .logo-holder {
   padding: 15px 0;
   img {
@@ -152,17 +192,21 @@ img.doneLoading {
     width: auto;
   }
 }
+
 .no-pad-bot {
   padding-bottom: 0;
 }
+
 .no-pad-top {
   padding-top: 0;
 }
+
 .bg {
   padding: 10px 0;
   position: relative;
   // background-color: $background-color;
 }
+
 .wish-head {
   min-height: 40px;
   p {
@@ -175,6 +219,7 @@ img.doneLoading {
     //        }
   }
 }
+
 .img-holder {
   min-height: 150px;
   padding: 10px 0 0;
@@ -183,20 +228,24 @@ img.doneLoading {
     position: absolute;
     top: 50%;
     left: 50%;
-    @include transform(translate(-50%,-50%));
+    @include transform(translate(-50%,
+    -50%));
   }
   img {
     margin: 0 auto;
   }
   .check {
     color: $head-color;
-    font-size: 20px;
+    font-size: 25px;
     position: absolute;
-    top: 15%;
-    left: 93%;
-    @include transform(translate(-15%,-93%));
+    top: 0;
+    right: 0;
+    @include transform(translate(50%,
+    -50%));
+    z-index: 99;
   }
 }
+
 .wish-name {
   p {
     padding: 10px;
@@ -204,6 +253,7 @@ img.doneLoading {
     background-color: $peach-bg;
   }
 }
+
 .wish-holder {
   @extend.img-holder;
   &.question {
@@ -211,12 +261,17 @@ img.doneLoading {
     margin: 0;
   }
 }
+
 .btn {
   @include transition(all 300ms ease);
 }
+
 .btn-yellow {
-  @include button-variant(white, $background-color, $background-color);
+  @include button-variant(white,
+  $background-color,
+  $background-color);
 }
+
 //jagruti css
 .loadingcfp {
   position: fixed;
@@ -232,6 +287,7 @@ img.doneLoading {
   top: 50%;
   background: rgba(255, 255, 255, 0.75);
 }
+
 .loadingcfp .in-box {
   width: 200px;
   padding: 40px 0;
@@ -250,6 +306,7 @@ img.doneLoading {
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
 .relative {
   position: relative;
   .absolute {
@@ -265,6 +322,7 @@ img.doneLoading {
     right: 0;
   }
 }
+
 .hq-form {
   border-radius: 5px;
   padding: 30px;
@@ -318,9 +376,11 @@ img.doneLoading {
     }
   }
 }
+
 .pointer {
   cursor: pointer;
 }
+
 .small-container {
   max-width: 900px;
   margin-right: auto;
@@ -328,12 +388,14 @@ img.doneLoading {
   padding-left: 15px;
   padding-right: 15px;
 }
+
 .img-left {
   text-align: left;
   img {
     float: none !important;
   }
 }
+
 .thought-box {
   font-family: $font-head;
   font-size: 14px;
@@ -356,12 +418,15 @@ img.doneLoading {
     @include transform(translateX(-50%));
   }
 }
+
 .responsive-center {
   margin: 0 auto;
 }
+
 .padding-vertical {
   padding: 30px 0 10px;
 }
+
 .row-five {
   text-align: center;
   .inlined {
@@ -374,6 +439,7 @@ img.doneLoading {
     }
   }
 }
+
 @media (max-width: $screen-sm-max) {
   .relative {
     .absolute {
@@ -384,6 +450,7 @@ img.doneLoading {
     }
   }
 }
+
 @media (max-width: $screen-xs-max) {
   .relative {
     .absolute {
@@ -403,13 +470,16 @@ img.doneLoading {
     width: 100%;
   }
 }
+
 .min-container {
   max-width: 900px;
   margin: 0 auto;
 }
+
 .no-border {
   border: 0 !important;
 }
+
 p.textup {
   position: absolute;
   top: 20px;
@@ -417,6 +487,7 @@ p.textup {
   padding: 0 14px;
   font-weight: 500;
 }
+
 .xyz-pillarx {
   height: 130px;
   margin-top: -45px;
@@ -454,7 +525,7 @@ p.textup {
       height: 0;
       border-left: 5px solid transparent;
       border-right: 5px solid transparent;
-      border-top:5px solid #fff2e1;
+      border-top: 5px solid #fff2e1;
       bottom: -5px;
       position: absolute;
       left: 50%;
@@ -462,9 +533,10 @@ p.textup {
     }
   }
 }
+
 .remove-width {
   max-width: none;
 }
-// login end
 
+// login end
 @import 'mobile';
